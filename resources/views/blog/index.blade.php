@@ -1,162 +1,48 @@
 @extends('layouts.app')
 @section('title','Blog')
 @section('content')
+    <div class="blog-grid pb-100px pt-100px main-blog-page single-blog-page">
+        <div class="container">
 
-        <div class="blog-area pt-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/7.png" alt="img1"></a>
+            <div class="row">
+                @foreach($blogs as $blog)
+                    <div class="col-lg-6 col-md-6 col-xl-4 mb-50px">
+                        <div class="single-blog">
+                            <div class="blog-image">
+                                <a href="/blog/{{$blog->slug}}"><img src="{{$blog->thumb}}" class="img-responsive w-100" alt="{{$blog->title}}"></a>
                             </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Nam ac elit a ante commodo Condimentum a vehicula tristique </a>
+                            <div class="blog-text">
+                                <div class="blog-athor-date">
+                                    <a class="blog-date height-shape" href="#"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                        {{$blog->created_at->diffForHumans()}}</a>
+                                    <a class="blog-mosion" href="/blog/{{$blog->slug}}"><i class="fa fa-commenting" aria-hidden="true"></i> {{$blog->visit}}</a>
                                 </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
+                                <h5 class="blog-heading"><a class="blog-heading-link" href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h5>
+
+                                <p>{{substr($blog->detail,0,100)}}</p>
+
+                                <a href="/blog/{{$blog->slug}}" class="btn btn-primary blog-btn"> Read More<i class="fa fa-arrow-right ml-5px" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/8.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Sed up tomo amti lemos tareb karo
-                                        tippu nima tiram khamu jan.</a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/9.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Jamu ta khamu naante commo Condimentum a vehicula tristique </a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/10.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Ami jemon cheyee commodo Condimentum a vehicula tristique </a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/11.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Govir ek nodi dilamcommodo Condimentum a vehicula tristique</a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/12.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Asto ekta mac ante commodo Condimentum a vehicula tristique </a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/13.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Nam ac elit a ante commodo Condimentum a vehicula tristique</a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <a href="shop_detalis.html"><img src="img/blog/14.png" alt="img1"></a>
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Nam ac elit a ante commodo Condimentum a vehicula tristique </a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="news-items mb-30 ">
-                            <div class="news-img">
-                                <img src="img/blog/15.png" alt="img1">
-                            </div>
-                            <span class="d-block pt-25">By Wpsmasher | Oct 15, 2021</span>
-                            <div class="news-details pt-5">
-                                <div class="news-title">
-                                    <a href="news_detalis.html">Nam ac elit a ante commodo Condimentum a vehicula tristique</a>
-                                </div>
-                                <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <nav class="construction-pagination text-center mt-25" aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    <!-- End single blog -->
+                @endforeach
+            </div>
+
+
+            <!--  Pagination Area Start -->
+            <div class="pro-pagination-style text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="pages">
+                    <ul>
+                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="li"><a class="page-link active" href="#">1</a></li>
+                        <li class="li"><a class="page-link" href="#">2</a></li>
+                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <!--  Pagination Area End -->
         </div>
-
+    </div>
 @endsection

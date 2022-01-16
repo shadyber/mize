@@ -70,5 +70,5 @@ Route::get('/delivery', function(){
 
 
 Route::get('/contact', function(){
-    return view('contact')->with('address', Address::all()->last());
+    return view('contact')->with('address', \App\Models\Address::all()->last());
 });

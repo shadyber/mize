@@ -19,9 +19,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
@@ -39,6 +36,7 @@
     <link rel="stylesheet" href="/css/mean-menu.css">
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/style.css">
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
 

@@ -61,12 +61,12 @@
                         <p class="pb-30 pr-120">Lorem ipsum dolor sit amet, cons
                             ectetur adipisicing elit, sed do
                             eiusmod tempor.</p>
-                        <a href="/shop" class="slider-btn position-relative">SHOP NOW</a>
+                        <a href="/item" class="slider-btn position-relative">SHOP NOW</a>
                     </div>
                 </div>
                 <div class="slider-images ">
                     <div class="slider-image-bg">
-                        <img src="/img/slider-area/1.png" alt="shoes">
+                        <img src="/img/slider-area/1.png" alt="BALTNA">
                         <span class="slider-price-badge">
                 <span>$5.59</span>
               </span>
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-8 offset-xl-1 offset-lg-1 offset-xl-0 ">
                     <div class="slider-description mt-200">
-                        <h1>Luxury <br> Shoes</h1>
+                        <h1>QUALITY <br> BALTNA</h1>
                         <p class="pb-30 pr-120">Lorem ipsum dolor sit amet, cons
                             ectetur adipisicing elit, sed do
                             eiusmod tempor.</p>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="slider-images ">
                     <div class="slider-image-bg">
-                        <img src="img/slider-area/2.png" alt="shoes">
+                        <img src="img/slider-area/2.png" alt="BALTNA">
                         <span class="slider-price-badge">
                 <span>$5.59</span>
               </span>
@@ -103,16 +103,16 @@
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-8 offset-xl-1 offset-lg-1 offset-xl-0 ">
                     <div class="slider-description mt-200">
-                        <h1>Luxury <br> Shoes</h1>
+                        <h1>QUALITY <br> BALTNA</h1>
                         <p class="pb-30 pr-120">Lorem ipsum dolor sit amet, cons
                             ectetur adipisicing elit, sed do
                             eiusmod tempor.</p>
-                        <a href="Shop_grid.html" class="slider-btn position-relative">SHOP NOW</a>
+                        <a href="/item" class="slider-btn position-relative">SHOP NOW</a>
                     </div>
                 </div>
                 <div class="slider-images ">
                     <div class="slider-image-bg">
-                        <img src="/img/slider-area/3.png" alt="shoes">
+                        <img src="/img/slider-area/3.png" alt="BALTNA">
                         <span class="slider-price-badge">
                 <span>$5.59</span>
               </span>
@@ -126,16 +126,16 @@
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-8 offset-xl-1 offset-lg-1 offset-xl-0 ">
                     <div class="slider-description mt-200">
-                        <h1>Luxury <br> Shoes</h1>
+                        <h1>QUALITY <br> BALTNA</h1>
                         <p class="pb-30 pr-120">Lorem ipsum dolor sit amet, cons
                             ectetur adipisicing elit, sed do
                             eiusmod tempor.</p>
-                        <a href="Shop_grid.html" class="slider-btn position-relative">SHOP NOW</a>
+                        <a href="/item" class="slider-btn position-relative">SHOP NOW</a>
                     </div>
                 </div>
                 <div class="slider-images ">
                     <div class="slider-image-bg">
-                        <img src="img/slider-area/4.png" alt="shoes">
+                        <img src="img/slider-area/4.png" alt="BALTNA">
                         <span class="slider-price-badge">
                 <span>$5.59</span>
               </span>
@@ -264,10 +264,10 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat4 cat2">
                     <div class="arrival-items text-center mb-55">
                         <div class="arrival-img">
-                            <img src="img/products/3.png" alt="Leader Shoes">
+                            <img src="img/products/3.png" alt="Leader BALTNA">
                         </div>
                         <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Leader Shoes</a></h5>
+                            <h5><a href="shop_detalis.html">Leader BALTNA</a></h5>
                             <ul class="rating">
                                 <li><i class="las la-star"></i></li>
                                 <li><i class="las la-star"></i></li>
@@ -341,7 +341,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat1 cat2">
                     <div class="arrival-items arrival-new-items arrival-sold-item text-center ">
                         <div class="arrival-img">
-                            <img src="img/products/6.png" alt="Leader Shoes">
+                            <img src="img/products/6.png" alt="Leader BALTNA">
                         </div>
                         <div class="arrival-details position-relative pt-25">
                             <h5><a href="shop_detalis.html">Decorative Plant Pot</a></h5>

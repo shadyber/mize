@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SearchController;
@@ -53,9 +54,8 @@ Route::get('/search',[SearchController::class,'search'])->name('search');
 
 
 
-Route::get('/about', function(){
-    return view('about');
-});
+Route::get('/about', [AboutUsController::class, 'index'])->name('about');
+
 Route::get('/terms', function(){
     return view('terms');
 });

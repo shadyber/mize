@@ -19,7 +19,7 @@ class ItemController extends Controller
 
     public function index()
     {
-        $items=Item::Paginate(15);
+        $items=Item::OrderBy('id','desc')->Paginate(15);
         return view('item.index')->with(['items'=>$items]);
     }
 

@@ -73,39 +73,16 @@
                 <div class="arrival-product new-arrival-2 position-relative pt-45">
                     <div class="row">
 
-                        @foreach($items as $item)
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 grid-item cat{{$item->category->id}}">
-                                <div class="arrival-items arrival-new-items text-center mb-55">
-                                    <div class="arrival-img">
-                                        <img src="{{$item->thumb}}" alt="{{$item->title}}">
-                                    </div>
-                                    <div class="arrival-details position-relative pt-25">
-                                        <ul class="rating">
-                                            <li><i class="las la-star"></i></li>
-                                            <li><i class="las la-star"></i></li>
-                                            <li><i class="las la-star"></i></li>
-                                            <li><i class="las la-star"></i></li>
-                                            <li><i class="las la-star"></i></li>
-                                        </ul>
-                                        <h5><a href="/item/{{$item->slug}}">{{$item->name}}</a></h5>
+@foreach($categories as $category)
+    <div class="col-md-6">
+        <div class="view-items ml-auto mr-auto mt-60">
+            <a class="p-btn position-relative btn-block" href="/cat/{{$category->slug}}">
+                <span>{{$category->title}}</span>
 
-                                        <div class="price">
-                                            <del>$ {{$item->price+30}}</del>
-                                            <span>${{$item->price}}</span>
-                                        </div>
-                                        <div class="buy-info">
-                                            <button class="slider-btn add-btn float-left position-relative add-to-cart" qnt="1" itemid="{{$item->id}}">Add To Cart</button>
-                                            <ul class="wishlist text-right">
-                                                <li> <a href="#"><i class="lar la-heart"></i></a></li>
-                                                <li><a href="/item/{{$item->slug}}" class=" popbtn"><i class="fas fa-search-plus"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        @endforeach
-
+            </a>
+        </div>
+    </div>
+    @endforeach
                     </div>
                 </div>
                 <div class="row">

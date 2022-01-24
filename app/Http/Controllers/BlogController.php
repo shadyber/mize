@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -36,7 +37,6 @@ class BlogController extends Controller
         if(!Auth::user()->hasRole('admin')){
             return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
-        return view('admin.blog.create');
 
 
     }

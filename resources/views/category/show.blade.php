@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('title','All Categories')
+@section('title','Items in '.$category->title)
 @section('content')
 
     <div class="container">
 
 
-        <div class="new-arrival shop-grid pt-110 ">
+        <div class="new-arrival shop-grid pt-10 ">
             <div class="container">
-                <div class="col-xl-12 pb-50">
+                <div class="col-xl-12 pb-10">
                     <div class="toolbar-navi d-inline-block ">
                         <div class="toolbar d-flex">
                             <div class="sort-by  d-flex mr-30">
@@ -70,7 +70,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="arrival-product new-arrival-2 position-relative pt-45">
+                <div class="arrival-product new-arrival-2 position-relative pt-10">
                     <div class="row">
 
                         @foreach($items as $item)

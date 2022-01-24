@@ -23,7 +23,7 @@
                                     <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
                                         <li><a href="/item">All Items</a></li>
                                         @foreach(\App\Models\ItemCategory::allCategories() as $itemcategory)
-                                            <li><a href="/cat/{{$itemcategory->slug}}">{{$itemcategory->title}}</a></li>
+                                            <li><a href="/cat/{{$itemcategory->id}}">{{$itemcategory->title}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>

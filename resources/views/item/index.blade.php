@@ -112,6 +112,7 @@
                     <div class="view-items ml-auto mr-auto mt-60">
                         <a class="p-btn position-relative" href="/item">
                             <span>Load more</span>
+                            {{$items->links()}}
                         </a>
                     </div>
                 </div>

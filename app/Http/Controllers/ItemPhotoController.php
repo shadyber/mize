@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ItemPhoto;
+use App\Models\ItemPhotos;
 use Illuminate\Http\Request;
 
 class ItemPhotoController extends Controller
@@ -66,7 +67,6 @@ class ItemPhotoController extends Controller
                 $items_photo->photo='/images/items/'.$newImageName;
                 $items_photo->thumb='/images/items/thumbnile/'.$newImageName;
                 $items_photo->title=$request->input('title');
-                $items_photo->verity_id=$request->input('verity_id');
                 $items_photo->save();
 
                 \Illuminate\Support\Facades\Session::flash('success', 'Alt Image successfully Updated!');

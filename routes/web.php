@@ -80,7 +80,7 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::resource('/order',App\Http\Controllers\OrderController::class);
     Route::post('/orderstatus',[Controllers\OrderController::class,'updateStatus'])->name('order.status');
     Route::post('/photoupdate', [App\Http\Controllers\AdminItemController::class, 'photoupdate'])->name('photoupdate');
-    Route::resource('/itemsphoto',App\Http\Controllers\ItemPhotosController::class);
+    Route::resource('/itemsphoto',App\Http\Controllers\ItemPhotoController::class);
     Route::resource('/verity',App\Http\Controllers\VerityController::class);
     Route::resource('/users',App\Http\Controllers\CustomerController::class);
     Route::get('/about/create',[AboutController::class,'create']);

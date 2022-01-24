@@ -152,34 +152,6 @@
 
                             </div>
                             <div class="tab-pane" id="variety" role="tabpanel" aria-labelledby="varity-tab">
-                                <div class="row">
-                                    <div class="col-md-3 flex">
-                                     @foreach($item->variety as $variety)
-                                            <img src="{{$variety->thumb}}" alt="{{$variety->title}}" width="128px" class="rounded-circle thumb-image">
-                                            <a href="/verity/{{$variety->id}}/edit"> Edit</a>
-                                        @endforeach
-                                    </div>
-                                    <div class="col-md-6">
-
-                                       <form action="/verity" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" value="{{$item->id}}" name="id">
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control" name="title" placeholder="Varity Texture Title"   required>
-                                        </div>
-                                           <div class="form-group">
-                                               <input type="file" class="form-control form-control" name="photo[]" placeholder="More Photo" multiple required>
-                                           </div>
-
-                                           <button class="btn btn-primary btn-user btn-block" type="submit">
-                                          Add Variety
-                                        </button>
-                                        {{Form::close()}}
-
-                                    </div>
-
-                                </div>
 
 
                             </div>
@@ -197,15 +169,6 @@
                                             </div>
 
 
-                                            <div class="form-group">
-                                                <select class="form-control form-control" name="verity_id" placeholder="Verity Color" required>
-                                                    <option value="">Select Verity</option>
-                                                    @foreach($item->variety as $verity)
-                                                        <option value="{{$verity->id}}">{{$verity->title}}</option>
-                                                        @endforeach
-                                                </select>
-                                            </div>
-
 
 
                                             <div class="form-group">
@@ -220,20 +183,7 @@
                                     </div>
                                     <div class="container">
                                         <div class="col-md-3">
-                                            @foreach($item->itemPhotos as $photo)
-                                                 <img src="{{$photo->thumb}}" alt="{{$photo->title}}" class="img-fluid img-thumbnail" width="100%" >
-                                                 {{$photo->verity->title}}
-                                                <form method="POST" action="/itemsphoto/{{$photo->id}}" class="form-inline ">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('DELETE') }}
 
-                                                    <div class="form-group">
-
-                                                        <button type="submit" class="btn btn-danger delete-photo"> <i class="fa fa-trash"></i></button>
-                                                    </div>
-                                                </form>
-
-                                            @endforeach
                                         </div>
                                     </div>
 

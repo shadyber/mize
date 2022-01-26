@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
 
         ]);
 
-       \ DB::table('item_categories')->insert([
+       \DB::table('item_categories')->insert([
             'title' => 'Pottery',
             'detail' => 'Ethiopian pottery',
 

@@ -1,5 +1,5 @@
-@extends('layouts.app)
-@section('titlte','Checkout')
+@extends('layouts.app')
+@section('title','Checkout')
 @section('content')
-    checkout
+    checkout method
 @endsection

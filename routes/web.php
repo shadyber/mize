@@ -49,6 +49,8 @@ Route::get('/mycart',[CartController::class,'myCart'])->name('mycart');
 
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
 
+Route::get('/myorder',[App\Http\Controllers\OrderController::class,'myorders'])->name('myorders');
+
 
 Route::get('/search',[SearchController::class,'search'])->name('search');
 

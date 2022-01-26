@@ -158,7 +158,7 @@
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
                 <div class="category-img-item first-items position-relative">
                     <div class="cat-thumb overflow-hidden">
-                        <img src="img/popular-categories/category-1.jpg" alt="img1">
+                        <img src="/img/popular-categories/category-1.jpg" alt="img1">
                     </div>
                     <div class="category-texts ">
                         <span>Popular</span>
@@ -170,7 +170,7 @@
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
                 <div class="category-img-item second-items position-relative mb-30">
                     <div class="cat-thumb overflow-hidden">
-                        <img src="img/popular-categories/category-2.png" alt="img2">
+                        <img src="/img/popular-categories/category-2.png" alt="img2">
                     </div>
                     <div class="category-texts position-absolute">
                         <h3><a href="/cat">Baltina</a></h3>
@@ -179,7 +179,7 @@
 
                 <div class="category-img-item third-items position-relative">
                     <div class="cat-thumb overflow-hidden">
-                        <img src="img/popular-categories/4.jpg" alt="img3">
+                        <img src="/img/popular-categories/4.jpg" alt="img3">
                     </div>
                     <div class="category-texts position-absolute">
                         <h3><a href="/cat">Ethiopian Pottery</a></h3>
@@ -211,7 +211,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat{{$item->Category->id}}">
                     <div class="arrival-items arrival-new-items text-center mb-55">
                         <div class="arrival-img">
-                            <img src="{{$item->thumb}}" alt="{{$item->name}}"  height="593px">
+                            <img src="{{$item->thumb}}" alt="{{$item->name}}"  height="450px">
                         </div>
                         <div class="arrival-details position-relative pt-25">
                             <h5><a href="/item/{{$item->slug}}">{{$item->name}}</a></h5>
@@ -228,7 +228,7 @@
                             <div class="buy-info">
                                 <button class="slider-btn add-btn float-left position-relative add-to-cart" href="#" itemid="{{$item->id}}">Add To Cart</button>
                                 <ul class="wishlist text-right">
-                                     <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
+                                     <li><a href="/item/{{$item->slug}}" ><i class="fas fa-search-plus"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -362,7 +362,7 @@
             </div>
             <div class="col-xl-7 col-lg-6 col-md-6 col-sm-12">
                 <div class="today-deal-img deal-img-position  text-center position-relative">
-                    <img src="img/deals/01.png" alt="product">
+                    <img src="/img/deals/01.png" alt="product">
                     <span class="deal-badge slider-price-badge">
               <span>20%
                 Discount</span>

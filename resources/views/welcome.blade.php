@@ -226,7 +226,7 @@
                                 <span>${{$item->price}}</span>
                             </div>
                             <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative add-to-cart" href="#" itemid="{{$item->id}}">Add To Cart</a>
+                                <button class="slider-btn add-btn float-left position-relative add-to-cart" href="#" itemid="{{$item->id}}">Add To Cart</button>
                                 <ul class="wishlist text-right">
                                      <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
                                 </ul>
@@ -296,13 +296,13 @@
                 <div class="quty mr-20">
                     <input class="qty" type="number" value="1">
                 </div>
-                <div class="add-tocart mr-20 mt-15 mt-sm-0">
-                    <a class="p-btn position-relative" href="">
+                <div class="add-to-cart mr-20 mt-15 mt-sm-0">
+                    <button class="p-btn position-relative"  >
                         <span>Add to cart</span>
-                    </a>
+                    </button>
                 </div>
                 <ul class="share d-flex align-items-center mt-15 mt-sm-0">
-                    <li><a href="my_wishlist.html"><i class="las la-heart"></i></a></li>
+                    <li><a href=""><i class="las la-heart"></i></a></li>
                     <li><a href=""><i class="las la-random"></i></a></li>
                 </ul>
             </div>
@@ -470,6 +470,32 @@
 
 <script src="/js/scripts.js"></script>
 
+<script>
+    var qnt=1;
+    function getqnt(){
+        qnt = document.getElementById("qtybutton").value;
+    }
+    function getquantity(){
+        return qnt;
+    }
+    $( ".add-to-cart" ).click(function() {
+        var itemid=$(this).attr("itemid");
+        var cbtn=$(this);
+        var itemqnt=$(this).attr('qnt')
+        $.get("/multipleaddtocart/"+itemid+"/"+qnt, function(data){
+            // Display the returned data in browser
+            cbtn.animate({
+                opacity: 0.25,
+                left: "+=5000",
+                top: "-=5000",
+                height: "toggle"
+            }, 50, function() {
+                // Animation complete.
+            });
+            $('#cartCount').html(data);
+        });
+    });
+</script>
 </body>
 
 </html>

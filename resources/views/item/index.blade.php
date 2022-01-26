@@ -97,7 +97,7 @@
                                         <button class="slider-btn add-btn float-left position-relative add-to-cart" qnt="1" itemid="{{$item->id}}">Add To Cart</button>
                                         <ul class="wishlist text-right">
                                             <li> <a href="#"><i class="lar la-heart"></i></a></li>
-                                            <li><a href="/item/{{$item->slug}}" class=" popbtn"><i class="fas fa-search-plus"></i></a></li>
+                                            <li><a href="/item/{{$item->slug}}" ><i class="fas fa-search-plus"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                     <div class="view-items ml-auto mr-auto mt-60">
                         <a class="p-btn position-relative" href="/item">
                             <span>Load more</span>
-                            
+
                         </a>
                     </div>
                 </div>

@@ -15,7 +15,7 @@
                                         <img src="{{$item->thumb}}" alt="bag">
                                     </div>
                                     <div class="arrival-details position-relative pt-75 ml-50">
-                                        <h5><a href="/item/{{$item->slug}}">Green Hand Bag</a></h5>
+                                        <h5><a href="/item/{{$item->slug}}">Traditional Baltina</a></h5>
                                         <ul class="rating pt-10">
                                             <li><i class="las la-star"></i></li>
                                             <li><i class="las la-star"></i></li>

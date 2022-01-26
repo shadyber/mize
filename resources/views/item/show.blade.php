@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title',$item->title)
 @section('content')
-    <div class="shop-details pt-120 ">
+    <div class="shop-details pt-10 ">
         <div class="container">
             <div class="row">
                 <div class="col-xl-1 col-lg-1 col-md-2 col-sm-12">
@@ -83,7 +83,7 @@
                 </div>
 
             </div>
-            <hr class="pt-75">
+
         </div>
     </div>
 @endsection

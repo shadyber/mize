@@ -15,10 +15,10 @@ class AddressSeeder extends Seeder
     public function run()
     {
         DB::table('addresses')->insert([
-            'tel' => '',
+            'tel' => '+25191255',
             'tel2' =>' 0911......',
-            'email' => 'admin@sandhstore.com',
-            'email2' =>'info@sandhstore.com',
+            'email' => 'admin@mize.com',
+            'email2' =>'info@mize.com',
             'address1' => 'Addis ababab , ',
             'address2' => 'Ethiopia',
         ]);

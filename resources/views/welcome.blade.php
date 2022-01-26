@@ -199,20 +199,22 @@
         </div>
         <div class="arrival-menu text-center pt-20">
             <button class="abtn" data-filter="*">All</button>
-            <button class="abtn" data-filter=".cat1">Furniture</button>
-            <button class="abtn" data-filter=".cat2">Electronics</button>
-            <button class="abtn" data-filter=".cat3">Household</button>
-            <button class="abtn" data-filter=".cat4">Decor</button>
+
+
+            @foreach(\App\Models\ItemCategory::allCategories() as $category)
+            <button class="abtn" data-filter=".cat{{$category->id}}">{{$category->title}}</button>
+            @endforeach
         </div>
         <div class="arrival-product pt-45">
             <div class="row grid">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat1 cat4">
+                @foreach(\App\Models\Item::lastN(6) as $item)
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat{{$item->Category->id}}">
                     <div class="arrival-items arrival-new-items text-center mb-55">
                         <div class="arrival-img">
-                            <img src="img/products/01.png" alt="bag">
+                            <img src="{{$item->thumb}}" alt="{{$item->name}}"  height="593px">
                         </div>
                         <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Green Hand Bag</a></h5>
+                            <h5><a href="/item/{{$item->slug}}">{{$item->name}}</a></h5>
                             <ul class="rating">
                                 <li><i class="las la-star"></i></li>
                                 <li><i class="las la-star"></i></li>
@@ -221,157 +223,25 @@
                                 <li><i class="las la-star"></i></li>
                             </ul>
                             <div class="price">
-                                <span>$219.00</span>
+                                <span>${{$item->price}}</span>
                             </div>
                             <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
+                                <a class="slider-btn add-btn float-left position-relative add-to-cart" href="#" itemid="{{$item->id}}">Add To Cart</a>
                                 <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
+                                     <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat3 cat2">
-                    <div class="arrival-items text-center mb-55">
-                        <div class="arrival-img">
-                            <img src="img/products/2.png" alt="bag">
-                        </div>
-                        <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Green Hand Bag</a></h5>
-                            <ul class="rating">
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                            </ul>
-                            <div class="price price1">
-                                <del>$219.00</del>
-                                <span class="ml-10 ">$189.00</span>
-                            </div>
-                            <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
-                                <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat4 cat2">
-                    <div class="arrival-items text-center mb-55">
-                        <div class="arrival-img">
-                            <img src="img/products/3.png" alt="Leader BALTNA">
-                        </div>
-                        <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Leader BALTNA</a></h5>
-                            <ul class="rating">
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                            </ul>
-                            <div class="price price1">
-                                <del>$219.00</del>
-                                <span class="ml-10">$189.00</span>
-                            </div>
-                            <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
-                                <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat3 cat4">
-                    <div class="arrival-items text-center mb-55">
-                        <div class="arrival-img">
-                            <img src="img/products/4.png" alt="bag">
-                        </div>
-                        <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">VRBox Tech</a></h5>
+                @endforeach
 
-                            <div class="price">
-                                <span>$219.00</span>
-                            </div>
-                            <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
-                                <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat1 cat3">
-                    <div class="arrival-items text-center mb-55">
-                        <div class="arrival-img img-height">
-                            <img src="img/products/5.png" alt="bag">
-                        </div>
-                        <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Kitty Head Set</a></h5>
-                            <ul class="rating">
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                            </ul>
-                            <div class="price price1">
-                                <del>$219.00</del>
-                                <span class="ml-10 ">$189.00</span>
-                            </div>
-                            <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
-                                <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 grid-item cat1 cat2">
-                    <div class="arrival-items arrival-new-items arrival-sold-item text-center ">
-                        <div class="arrival-img">
-                            <img src="img/products/6.png" alt="Leader BALTNA">
-                        </div>
-                        <div class="arrival-details position-relative pt-25">
-                            <h5><a href="shop_detalis.html">Decorative Plant Pot</a></h5>
-                            <ul class="rating">
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                            </ul>
-                            <div class="price price1">
-                                <del>$219.00</del>
-                                <span class="ml-10">$189.00</span>
-                            </div>
-                            <div class="buy-info">
-                                <a class="slider-btn add-btn float-left position-relative" href="shopping_cart.html">Add To Cart</a>
-                                <ul class="wishlist text-right">
-                                    <li> <a href="my_wishlist.html"><i class="lar la-heart"></i></a></li>
-                                    <li><button class=" popbtn"><i class="fas fa-search-plus"></i></button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
         <div class="row">
             <div class="view-items ml-auto mr-auto mt-50">
-                <a class="p-btn position-relative" href="shop_grid.html">
+                <a class="p-btn position-relative" href="/item">
                     <span>Load more</span>
                 </a>
             </div>
@@ -385,10 +255,10 @@
             <button>X</button>
         </div>
         <div class="product-img">
-            <img src="img/products/01.png" alt="img">
+            <img src="/img/products/01.png" alt="img">
         </div>
         <div class="product-details ml-30 mt-20">
-            <h5>Yellow Bag Women 2018</h5>
+            <h5>Mitin Shiro</h5>
             <ul class="rating d-inline-block mr-20">
                 <li><i class="las la-star"></i></li>
                 <li><i class="las la-star"></i></li>
@@ -508,54 +378,26 @@
 <div class="news-area pt-115">
     <div class="container">
         <div class="section-title text-center pb-45">
-            <h2 class="text-uppercase">LATEST NEWS</h2>
+            <h2 class="text-uppercase">LATEST Blog</h2>
         </div>
         <div class="row">
+          @foreach(\App\Models\Blog::lastN(3) as $blog)
             <div class="col-xl-4 col-lg-4 col-md-4">
                 <div class="news-items mb-30 mb-md-0">
                     <div class="news-img">
-                        <a href="blog.html"><img src="img/blog/01.png" alt="img1"></a>
+                        <a href="/blog/{{$blog->slug}}"><img src="{{$blog->thumb}}" alt="{{$blog->title}}" height="305px"></a>
                     </div>
                     <div class="news-details pt-20">
                         <div class="news-title pr-50">
-                            <a href="news_detalis.html">Lorem Ipsum has been the industry
-                                sed do tempor tara</a>
+                            <a href="/blog/{{$blog->slug}}">{{$blog->title}}</a>
                         </div>
-                        <span class="d-block">Jan 21, 2021 By Admin</span>
-                        <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
+                        <span class="d-block">{{$blog->created_at->diffForHumans()}} By Admin</span>
+                        <a class="slider-btn d-inline-block position-relative mt-10" href="/blog/{{$blog->slug}}">Read More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 ml-30 mr-60 ">
-                <div class="news-items mb-30 mb-md-0">
-                    <div class="news-img">
-                        <a href="blog.html"><img src="img/blog/02.png" alt="img1"></a>
-                    </div>
-                    <div class="news-details pt-20">
-                        <div class="news-title pr-50">
-                            <a href="news_detalis.html">Lorem Ipsum has been the industry
-                                sed do tempor tara</a>
-                        </div>
-                        <span class="d-block">Jan 21, 2021 By Admin</span>
-                        <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 pl-xl-0 pr-xl-0 ">
-                <div class="news-items">
-                    <div class="news-img">
-                        <a href="blog.html"><img src="img/blog/03.png" alt="img1"></a>
-                    </div>
-                    <div class="news-details pt-20">
-                        <div class="news-title ">
-                            <a href="news_detalis.html">Lorem Ipsum has been the industry
-                                sed do tempor tara</a>
-                        </div>
-                        <span class="d-block">Jan 21, 2021 By Admin</span>
-                        <a class="slider-btn d-inline-block position-relative mt-10" href="news_detalis.html">Read More</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </div>
@@ -595,126 +437,20 @@
             <span>@mize_insta</span>
         </div>
         <div class="instagram-images d-flex pt-60">
+            @foreach(\App\Models\ItemPhoto::all()->take(4) as $image)
             <div class="insta-imgs position-relative">
-                <img src="img/instagram/01.jpg"  alt="img">
+                <img src="{{$image->thumb}}"  alt="{{$image->alt}}">
                 <a href="#"><i class="lab la-instagram"></i></a>
             </div>
-            <div class="insta-imgs position-relative">
-                <img src="img/instagram/02.jpg" alt="img">
-                <a href="#"><i class="lab la-instagram"></i></a>
-            </div>
-            <div class="insta-imgs position-relative">
-                <img src="img/instagram/03.jpg" alt="img">
-                <a href="#"><i class="lab la-instagram"></i></a>
-            </div>
-            <div class="insta-imgs position-relative">
-                <img src="img/instagram/04.jpg" alt="img">
-                <a href="#"><i class="lab la-instagram"></i></a>
-            </div>
+            @endforeach
+
 
         </div>
     </div>
 </div>
 
 <!-- Instagram Area Ends -->
-
-<!-- Footer Area Starts -->
-<footer class="footer-area ">
-    <div class="container">
-        <div class="footer-menu pt-120">
-            <div class="row">
-                <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer-widget mb-30 mb-lg-0 pt-15">
-                        <div class="logo pb-30">
-                            <a href="index.html"><img src="img/logo/logo.png" alt="img"></a>
-                        </div>
-                        <div class="footer-info">
-                            <ul>
-                                <li>Email: <span class="ml-5">mize@gmail.com</span></li>
-                                <li>Phone: <span class="ml-5">+948 256 347 968</span></li>
-                            </ul>
-                            <p class="pr-65">Subscribe to our newsleter and stay
-                                up to date with latest offers and
-                                upcoming trends.</p>
-                            <div class="footer-input position-relative mt-30">
-                                <input type="email" placeholder="Email">
-                                <button><i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer-widget mb-30 mb-lg-0">
-                        <h4>About Us</h4>
-                        <ul class="footer-info pt-10">
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Our Outlets</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Sales and Retails</a>
-                            </li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Areas we serve</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Career at mize</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="contact_page.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Help and Support</h4>
-                        <ul class="footer-info pt-10">
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Track my order</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Our top products</a>
-                            </li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="shopping_cart.html">My cart</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Sign in</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="checkout_page.html">Shipping
-                                    Calculator</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6  pl-xl-0">
-                    <div class="footer-widget">
-                        <h4>Pages & Resources</h4>
-                        <ul class="footer-info pt-10">
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">About Us</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="shop_grid.html">Shop Page</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="shop_grid.html">Category page</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="about_us.html">Sign in page</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="404.html">404 page</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom mt-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 order-md-2 order-lg-1">
-                    <div class="copyright mt-15">
-                        <p>Copyright © 2020 | Designed by <a href="https://themeforest.net/user/wpsmasher"
-                                                             target="_blank">Wpsmasher</a></p>
-                    </div>
-
-                </div>
-                <div class="col-xl-5 col-lg-3 col-md-12 order-md-1 order-lg-2">
-                    <ul class="social-icon text-center mt-15">
-                        <li><a href=""><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href=""><i class="lab la-twitter"></i></a></li>
-                        <li><a href=""><i class="lab la-instagram"></i></a></li>
-                        <li><a href=""><i class="lab la-vimeo"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 order-md-2 order-lg-3">
-                    <div class="policy  text-right mt-15">
-                        <a class="position-relative" href="#">Terms of Use </a>
-                        <a class="ml-40" href="#">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Footer Area Ends -->
+@include('components.footer')
 
 
 

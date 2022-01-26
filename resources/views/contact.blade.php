@@ -32,8 +32,8 @@
                             <i class="fas fa-envelope-open-text"></i>
                         </div>
                         <ul class="contact-info text-center">
-                            <li>info@aruk.com</li>
-                            <li>admin@aruk.com</li>
+                            <li>info@mizebaltina.comm</li>
+                            <li>admin@mizebaltina.comm</li>
                         </ul>
                     </div>
                 </div>

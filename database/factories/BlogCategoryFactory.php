@@ -15,7 +15,7 @@ class BlogCategoryFactory extends Factory
     {
         return [
             'title'=>$this->faker->word,
-            'photo'=>$this->faker->imageUrl(640,480,'culture'),
+            'photo'=>$this->faker->imageUrl(640,480),
             'detail'=>$this->faker->sentence,
         ];
     }

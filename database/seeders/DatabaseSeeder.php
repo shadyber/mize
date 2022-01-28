@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\AboutUs;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Item;
-use App\Models\ItemCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AddressSeeder::class,
+            AboutUsSeeder::class,
             CategorySeeder::class,
             AdminSeeder::class,
             RoleSeeder::class,

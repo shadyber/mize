@@ -1,48 +1,130 @@
-<!-- header area starts -->
-<header>
-    <div class="header-1 pt-35 ">
-        <div class="container">
+
+<!-- Mobile Menu Start Here -->
+<div class="mobile-menu transparent-header">
+    <nav class="mobile-header">
+        <div class="header-logo">
+            <a href="/l"><img src="/assets/images/logo/01.png" alt="logo"></a>
+        </div>
+        <div class="header-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <nav class="mobile-menu">
+        <div class="mobile-menu-area">
+            <div class="mobile-menu-area-inner">
+                <ul class="lab-ul">
+                    <li>
+                        <a href="">Home</a>
+
+                    </li>
+                    <li><a href="/about">About</a></li>
+
+                    <li>
+                        <a href="/blog">Blog</a>
+
+                    </li>
+                    <li class="active">
+                        <a href="/item">Shop</a>
+
+                    </li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Mobile Menu Endin♠g Here -->
+
+<!-- desktop menu start here -->
+<header class="header-section">
+    <div class="header-top">
+        <div class="container  justify-content-center align-items-center bp-0">
             <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-7 order-md-2 order-lg-1">
-                    <div class="logo text-md-center text-lg-left">
-                        <a href="/"><img src="/img/logo/logo.png" alt="mize-logo"></a>
+                <div class="col-md-4 col-md-4">
+                    <div class="logo py-2">
+                        <a href="/"><img src="/assets/images/logo/01.png" alt="logo"></a>
                     </div>
                 </div>
+                <div class="col-md-8 col-md-8">
+                    <div class="ht-left">
+                        <ul class="lab-ul d-flex flex-wrap justify-content-center">
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="ht-add-thumb mr-2">
+                                    <img src="/assets/images/header/01.png" alt="address">
+                                </div>
+                                <div class="ht-add-content">
+                                    <span>Address Line</span>
+                                    <span class="d-block text-bold">{{\App\Models\Address::all()->last()->address1}}</span>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="ht-add-thumb mr-2">
+                                    <img src="/assets/images/header/02.png" alt="email">
+                                </div>
+                                <div class="ht-add-content">
+                                    <span>Send Mail </span>
+                                    <span class="d-block text-bold"><a href="mailto:{{\App\Models\Address::all()->last()->email}}">{{\App\Models\Address::all()->last()->email}}</a></span>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="ht-add-thumb mr-2">
+                                    <img src="/assets/images/header/03.png" alt="call">
+                                </div>
+                                <div class="ht-add-content">
+                                    <span>Make Call </span>
+                                    <span class="d-block text-bold"><a href="tel:{{\App\Models\Address::all()->last()->tel}}">{{\App\Models\Address::all()->last()->tel}}</a></span>
+                                </div>
+                            </li>
 
-                <div class="col-xl-7 col-lg-7 col-md-3 order-md-1 offset-sm-2 offset-md-0 order-lg-2 col-sm-auto">
-                    <nav>
-                        <div id="mobile-menu" class="main-menu">
-                            <ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom bg-theme">
+        <div class="header-area">
+            <div class="container">
+                <div class="primary-menu">
+                    <div class="main-area w-100">
+                        <div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
+                            <div class="logo">
+                                <a href="/"><img src="/assets/images/logo/02.png" alt="logo"></a>
+                            </div>
+                            <ul class="lab-ul">
                                 <li>
                                     <a href="/">Home</a>
 
                                 </li>
-                                <li>
-                                    <a href="/item">Shop</a>
+                                <li><a href="/about">About</a></li>
 
-                                    <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
-                                        <li><a href="/item">All Items</a></li>
-                                        @foreach(\App\Models\ItemCategory::allCategories() as $itemcategory)
-                                            <li><a href="/cat/{{$itemcategory->id}}">{{$itemcategory->title}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
                                 <li>
                                     <a href="/blog">Blog</a>
+                                    <ul class="lab-ul">
+                                        <li><a href="/blog">All Blog</a></li>
+                                        @foreach(\App\Models\BlogCategory::allCategories() as $cat)
+                                        <li><a href="/blogcategory/{{$cat->id}}">{{$cat->title}}</a></li>
+                                        @endforeach
 
-                                    <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
-                                        <li><a href="/blog">All Blogs</a></li>
-                                    @foreach(\App\Models\BlogCategory::allCategories() as $blogcategory)
-                                        <li><a href="/blogcategory/{{$blogcategory->slug}}">{{$blogcategory->title}}</a></li>
-                                    @endforeach
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="/item">Shop</a>
+                                    <ul class="lab-ul">
+                                        @foreach(\App\Models\ItemCategory::allCategories() as $cat)
+                                        <li><a href="/cat/{{$cat->id}}" class="active">{{$cat->title}}</a>
+                                        @endforeach
 
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/gallery">Gallery</a>
+
+                                </li>
 
                                 <li><a href="/contact">Contact</a></li>
-                                <li><a href="/about">About Us</a></li>
-
-
                                 <li>
 
                                     <a  href="#" >
@@ -51,85 +133,49 @@
                                     <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
                                         @foreach (Config::get('languages') as $lang => $language)
                                             @if ($lang != App::getLocale())
-                                              <li> <a  href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span> {{$language['display']}}</a></li>
+                                                <li> <a  href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span> {{$language['display']}}</a></li>
                                             @endif
                                         @endforeach
 
                                     </ul>
                                 </li>
+                            </ul>
+                            <ul class="lab-ul search-cart">
+                                 <li>
+                                    <div class="cart-option">
+                                        <i class="icofont-cart-alt"></i>
+                                        <span >0</span>
+                                        <div class="cart-content">
+                                            @foreach(\App\Models\Cart::myCart() as $cart)
+                                            <div class="cart-item">
+                                                <div class="cart-img">
+                                                    <a href="#"><img src="/assets/images/products/product/01.png"
+                                                                     alt="cart"></a>
+                                                </div>
+                                                <div class="cart-des">
+                                                    <a href="#">{{$cart['title']}}</a>
+                                                    <p>${{$cart['price']}}</p>
+                                                </div>
+                                                <div class="cart-btn">
+                                                    <a href="#"><i class="icofont-close-circled"></i></a>
+                                                </div>
+                                            </div>
+                                                @endforeach
 
-
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search-option">
+                                        <i class="icofont-search-2"></i>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
-                    </nav>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5 order-md-3 order-lg-3 ">
-                    <div class="nav-icons">
-                        <ul>
-                            <li>
-                                <div class="search position-relative">
-                                    <span ><i class="fas fa-search"></i></span>
-                                    <div class="search-overlap">
-                                    </div>
-                                    <form action="/search" method="get" class="search-form position-fixed">
-                                        <div class="search-input">
-                                            <div class="search-close">
-                                                <span>X</span>
-                                            </div>
-                                            <input type="text" name="key" placeholder="Enter your keywords.....">
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-
-
-
-
-                            <li><a href="/home"><i class="fas fa-user"></i>
-                                 </a></li>
-                            <li class="position-relative"><span class="product-cart"><i class="fas fa-shopping-cart"></i></span>
-                                <span class="badge badge-pink " id="cartCount">{{\Illuminate\Support\Facades\Session::get('cart')? count(\Illuminate\Support\Facades\Session::get('cart')) : '0'}}</span>
-
-                                <div class="product-on-sale pb-30">
-                                    <div class="product-close-icon">
-                                        <span>X</span>
-                                    </div>
-                                    @foreach(\App\Models\Cart::myCart() as $cart)
-                                    <div class="product-wrapper d-flex">
-                                        <div class="product-img position-relative ">
-                                            <img  src="{{$cart['thumb']}}"   alt="{{$cart['name']}}" width="65px" height="55px">
-                                            <div class="cart-icon">
-                                                <a href="/item/{{$cart['slug']}}"><i class="las la-cart-plus"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-details mt-10">
-
-                                            <h6><a href="/item/{{$cart['slug']}}">{{$cart['name']}}</a></h6>
-                                            <div class="price d-flex">
-                                                <span>${{$cart['price']}} x {{$cart['quantity']}}</span>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                        @endforeach
-
-                                    <div class="cart-price pr-20 pt-30">
-
-                                        <p>Total: <span>$ {{\App\Models\Cart::totalCart()}}</span></p>
-                                    </div>
-                                    <div class="cart-button mt-20 pl-15">
-                                        <a  href="/mycart">View Cart</a>
-                                        <a  href="/checkout">Checkout</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
-
             </div>
-            <div class="mobile-menu"></div>
         </div>
     </div>
 </header>
-<!-- header area ends -->
+<!-- desktop menu ending here -->

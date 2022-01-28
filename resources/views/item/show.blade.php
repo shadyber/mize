@@ -1,104 +1,197 @@
 @extends('layouts.app')
 @section('title',$item->title)
 @section('content')
-    <div class="shop-details pt-10 ">
+
+
+    <!-- Shop Page Section start here -->
+    <section class="shop-single padding-tb">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-1 col-lg-1 col-md-2 col-sm-12">
-                    <div class="nav nav-tabs " id="approach-tabs" role="tablist">
+            <div class="row justify-content-center mb-15">
+                <div class="col-lg-12 col-12 sticky-widget">
+                    <div class="product-details">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-12">
+                                <div class="product-thumb">
+                                    <div class="swiper-container gallery-top">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="shop-item">
+                                                    <div class="shop-thumb">
+                                                        <img src="{{$item->photo}}"
+                                                             alt="shop-single">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @foreach($item->ItemPhoto as $photo)
+                                            <div class="swiper-slide">
+                                                <div class="shop-item">
+                                                    <div class="shop-thumb">
+                                                        <img src="{{$photo->photo}}"
+                                                             alt="shop-single">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
 
-                        <a class="product-thumb mb-15 active" id="nav-thumb1" data-toggle="tab" href="#nav-product1" role="tab" aria-controls="nav-product1" aria-selected="true">
-                            <img src="{{$item->thumb}}" width="70px" height="90px" alt="img">
-                        </a>
+                                        </div>
+                                        <div class="shop-navigation d-flex flex-wrap">
+                                            <div class="shop-nav shop-slider-prev"><i class="icofont-simple-left"></i>
+                                            </div>
+                                            <div class="shop-nav shop-slider-next"><i class="icofont-simple-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-container gallery-thumbs">
+                                        <div class="swiper-wrapper">
 
-                        @foreach($item->ItemPhoto as $itemphoto)
-
-                        <a class="product-thumb mb-15" id="nav-thum2" data-toggle="tab" href="#nav-product2" role="tab" aria-controls="nav-product2" aria-selected="false">
-                            <img src="{{$itemphoto->thumb}}" alt="img"  width="70px" height="90px"></a>
-                       @endforeach
-
-                    </div>
-                </div>
-                <div class="col-xl-11 col-lg-11 col-md-10 col-sm-12">
-                    <div class="product-wrapper d-flex">
-                        <div class="product-imges tab-content" id="nav-tabContents">
-                            <div class="tab-pane product-img  active " id="nav-product1" role="tabpanel" aria-labelledby="nav-thumb1">
-                                <img src="{{$item->photo}}" alt="img" width="350px">
+                                            <div class="swiper-slide">
+                                                <div class="shop-item">
+                                                    <div class="shop-thumb">
+                                                        <img src="{{$item->thumb}}" alt="shop-single">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @foreach($item->ItemPhoto as $photo)
+                                            <div class="swiper-slide">
+                                                <div class="shop-item">
+                                                    <div class="shop-thumb">
+                                                        <img src="/{{$photo->thumb}}" alt="shop-single">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            @foreach($item->ItemPhoto as $itemphoto)
-                            <div class="tab-pane product-img " id="nav-product2" role="tabpanel" aria-labelledby="nav-thum2">
-                                <img src="{{$itemphoto->photo}}" alt="img"  width="350px">
-                            </div>
-                            @endforeach
+                            <div class="col-md-6 col-12">
+                                <div class="post-content">
+                                    <h4>{{$item->title}}</h4>
+                                    <p class="rating">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        (3 review)
+                                    </p>
+                                    <h4>
+                                        $ {{$item->price}}
+                                    </h4>
+                                    <h5>
+                                        Product Description
+                                    </h5>
+                                    <p>
+                                     {{$item->detail}}
+                                    </p>
+                                    <form>
 
+
+                                        <div class="cart-plus-minus">
+                                            <div class="dec qtybutton">-</div>
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                            <div class="inc qtybutton">+</div>
+                                        </div>
+                                        <div class="discount-code">
+
+                                        </div>
+                                        <button type="submit">Add To Cart</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product-details ml-50">
-                            <h5>{{$item->title}}</h5>
-                            <ul class="rating d-inline-block mr-20">
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                                <li><i class="las la-star"></i></li>
-                            </ul>
-                            <span>0 Customer Review</span>
-                            <div class="price pt-15 pb-10">
-                                <span>$ {{$item->price}}</span>
+                    </div>
+                    <div class="review">
+                        <ul class="agri-ul review-nav">
+                            <li class="desc" data-target="description-show">Description</li>
+                            <li class="rev active" data-target="review-content-show">Reviews {{count($item->Reviews)}}</li>
+                        </ul>
+                        <div class="review-content review-content-show">
+                            <div class="review-showing">
+                                <ul class="agri-ul content">
+                                   @foreach($item->Reviews as $review)
+                                    <li>
+                                        <div class="post-thumb">
+                                            <img src="{{$review->User->avatar}}" alt="{{$review->User->name}}">
+                                        </div>
+                                        <div class="post-content">
+                                            <div class="entry-meta">
+                                                <div class="posted-on">
+                                                    <a href="#">{{$review->User->name}}</a>
+                                                    <p>Posted {{$review->created_at->diffForHumans()}}</p>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                     {{$review->stars}}
+                                                </div>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p{{$review->comment}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+                                <div class="client-review">
+                                    <div class="review-form">
+                                        <div class="review-title">
+                                            <h5>Add a Review</h5>
+                                        </div>
+                                        <form action="/review" method="post" class="row" @if(!\Illuminate\Support\Facades\Auth::user()) style="display: none" @endif >
+                                            @csrf
+                                            <div class="col-md-4 col-12">
+                                                <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->id : 0}}">
+                                                <input type="text" name="name" placeholder="Full Name" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->name : 'login to review'}}">
+                                            </div>
+                                            <div class="col-md-4 col-12">
+                                                <input type="text" name="email" placeholder="Email Adress" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->email : 'login to review'}}">
+                                            </div>
+                                            <div class="col-md-4 col-12">
+                                                <div class="rating">
+                                                    <input type="hidden" name="stars" value="5" id="ratingstar">
+                                                    <span class="rating-title">Your Rating : </span>
+                                                    <div class="rating">
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <textarea rows="8" placeholder="Type Here Message" name="comment"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="defult-btn" type="submit">Submit Review</button>
+                                            </div>
+                                        </form>
+
+                                        <div class="col-12">
+                                            <a href="/login" class="btn btn-outline-danger" type="submit">Login or Register to Review</a>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
-                            <p class="pr-110">
+                            <div class="description">
+
                                 {{$item->detail}}
-                            </p>
-                            <div class="product-color pt-10 d-flex">
-
                             </div>
-                            <div class="product-size d-flex pt-10">
-                                <h6>SELECT SIZE</h6>
-                                <ul class="ml-50">
-
-                                </ul>
-                            </div>
-                            <div class="product-count d-flex mt-25">
-                                <div class="quty mr-20">
-                                    <div class="nice-number"><button type="button">-</button><input class="qty" type="number" value="1" data-nice-number-initialized="true" style="width: 2ch;"><button type="button">+</button></div>
-                                </div>
-                                <div class="add-tocart mr-20 mt-15 mt-sm-0">
-                                    <button type="submit" class="p-btn btn-block custom-height bg-dark mb-2  add-to-cart" itemid="{{$item->id}}" qnt="getquantity()">
-                                        <i class="lni lni-shopping-basket mr-2"></i>Add to Cart
-                                    </button>
-                                </div>
-                                <ul class="share d-flex align-items-center mt-15 mt-sm-0">
-                                    <li><a href="my_wishlist.html"><i class="las la-heart"></i></a></li>
-                                    <li><a href=""><i class="las la-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <ul class="social-icon pt-80">
-                                <li><a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a></li>
-                                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-    </div>
+    </section>
+    <!-- Shop Page Section ending here -->
 @endsection
 @section('js')
-    <script>
 
-        var qnt=1;
-        function getqnt(){
-            qnt = document.getElementById("qtybutton").value;
-        }
-        function getquantity(){
-            return qnt;
-        }
-
-
-    </script>
 @endsection
 

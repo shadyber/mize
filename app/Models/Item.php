@@ -30,7 +30,7 @@ class Item extends Model
     }
 
 
-    public function reviews(){
+    public function Reviews(){
         return $this->hasMany(Review::class);
     }
     public function sluggable(): array

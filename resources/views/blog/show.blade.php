@@ -9,7 +9,7 @@
                             <div class="post-item-2">
                                 <div class="post-inner">
                                     <div class="post-thumb">
-                                        <img src="{{$blog->detail}}" alt="blog">
+                                        <img src="{{$blog->thumb}}" alt="blog">
                                     </div>
                                     <div class="post-content">
                                         <h4>{{$blog->title}}</h4>
@@ -120,8 +120,7 @@
 
                                     @foreach(\App\Models\BlogCategory::allCategories() as $category)
                                     <li>
-                                        <a href="/blogcategory/{{$category->title}}" class="d-flex flex-wrap justify-content-between"><span>Show
-													all</span><span>()</span></a>
+                                        <a href="/blogcategory/{{$category->slug}}" class="d-flex flex-wrap justify-content-between"><span>{{$category->title}}</span><span>()</span></a>
                                     </li>
                                         @endforeach
 
@@ -133,81 +132,25 @@
                                     <h5>Recent Post</h5>
                                 </div>
                                 <ul class="lab-ul widget-wrapper">
+                                    @foreach(\App\Models\Blog::lastN(4) as $bl)
                                     <li class="d-flex flex-wrap justify-content-between">
                                         <div class="post-thumb">
-                                            <a href="blog-single.html"><img src="assets/images/product/01.jpg" alt="product"></a>
+                                            <a href="/blog/{{$bl->slug}}"><img src="{{$bl->thumb}}" alt="{{$bl->title}}"></a>
                                         </div>
                                         <div class="post-content">
-                                            <a href="blog-single.html">
-                                                <h6>Conveniently utilize premier metho.</h6>
+                                            <a href="/blog/{{$bl->slug}}">
+                                                <h6>{{$bl->title}}</h6>
                                             </a>
-                                            <p>04 February 2019</p>
+                                            <p>{{$bl->created_at->diffForHumans()}}</p>
                                         </div>
                                     </li>
-                                    <li class="d-flex flex-wrap justify-content-between">
-                                        <div class="post-thumb">
-                                            <a href="blog-single.html"><img src="assets/images/product/02.jpg" alt="product"></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="blog-single.html">
-                                                <h6>Seamlessly fashion customiz before.</h6>
-                                            </a>
-                                            <p>04 February 2019</p>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex flex-wrap justify-content-between">
-                                        <div class="post-thumb">
-                                            <a href="blog-single.html"><img src="assets/images/product/03.jpg" alt="product"></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="blog-single.html">
-                                                <h6>Conveniently utilize premier metho.</h6>
-                                            </a>
-                                            <p>04 February 2019</p>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex flex-wrap justify-content-between">
-                                        <div class="post-thumb">
-                                            <a href="blog-single.html"><img src="assets/images/product/04.jpg" alt="product"></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="blog-single.html">
-                                                <h6>Seamlessly fashion customiz before.</h6>
-                                            </a>
-                                            <p>04 February 2019</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                @endforeach
+
                             </div>
 
-                            <div class="widget widget-instagram">
-                                <div class="widget-header">
-                                    <h5>instagram</h5>
-                                </div>
-                                <ul class="lab-ul widget-wrapper d-flex flex-wrap justify-content-center">
-                                    <li><a href="#"><img src="assets/images/team/01.jpg" alt="team"></a></li>
-                                    <li><a href="#"><img src="assets/images/team/02.jpg" alt="team"></a></li>
-                                    <li><a href="#"><img src="assets/images/team/03.jpg" alt="team"></a></li>
-                                    <li><a href="#"><img src="assets/images/team/04.jpg" alt="team"></a></li>
-                                </ul>
-                            </div>
 
-                            <div class="widget widget-tags">
-                                <div class="widget-header">
-                                    <h5>top tags</h5>
-                                </div>
-                                <ul class="lab-ul widget-wrapper">
-                                    <li><a href="#">envato</a></li>
-                                    <li><a href="#">themeforest</a></li>
-                                    <li><a href="#">codecanyon</a></li>
-                                    <li><a href="#">videohive</a></li>
-                                    <li><a href="#">audiojungle</a></li>
-                                    <li><a href="#">3docean</a></li>
-                                    <li><a href="#">envato</a></li>
-                                    <li><a href="#">themeforest</a></li>
-                                    <li><a href="#">codecanyon</a></li>
-                                </ul>
-                            </div>
+
+
                         </aside>
                     </div>
                 </div>

@@ -144,16 +144,16 @@
                                  <li>
                                     <div class="cart-option">
                                         <i class="icofont-cart-alt"></i>
-                                        <span >0</span>
+                                        <span >{{count(App\Models\Cart::mycart())}}</span>
                                         <div class="cart-content">
                                             @foreach(\App\Models\Cart::myCart() as $cart)
                                             <div class="cart-item">
                                                 <div class="cart-img">
-                                                    <a href="#"><img src="/assets/images/products/product/01.png"
+                                                    <a href="#"><img src="{{$cart['thumb']}}"
                                                                      alt="cart"></a>
                                                 </div>
                                                 <div class="cart-des">
-                                                    <a href="#">{{$cart['title']}}</a>
+                                                    <a href="#">{{$cart['name']}}</a>
                                                     <p>${{$cart['price']}}</p>
                                                 </div>
                                                 <div class="cart-btn">
@@ -161,6 +161,17 @@
                                                 </div>
                                             </div>
                                                 @endforeach
+
+
+                                                <div class="cart-bottom">
+                                                    <div class="cart-subtotal">
+                                                        <p>Total: <b class="float-right">${{\App\Models\Cart::totalCart()}}</b></p>
+                                                    </div>
+                                                    <div class="cart-action">
+                                                        <a href="/mycart" class="lab-btn"><span>View Cart</span></a>
+                                                        <a href="/checkout" class="lab-btn"><span>Check Out</span></a>
+                                                    </div>
+                                                </div>
 
                                         </div>
                                     </div>

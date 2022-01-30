@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             AboutUsSeeder::class,
             CategorySeeder::class,
             AdminSeeder::class,
+            ShippingMethodSeeder::class,
             RoleSeeder::class,
            PermisionSeeder::class,
             //RolePermisionSeeder::class,

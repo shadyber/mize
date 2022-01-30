@@ -4,7 +4,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Mize Baltina') }}</title>
+    <title>{{ config('app.name', 'Mize Mart') }}</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
      <!-- google fonts -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/x-icon/01.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/02.png">
 
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -48,8 +48,8 @@
     <div class="search-close">
         <i class="icofont-close-circled"></i>
     </div>
-    <form>
-        <input type="text" name="text" placeholder="Search Heare">
+    <form method="get" action="/search">
+        <input type="text" name="key" placeholder="Search Heare">
         <button class="search-btn" type="submit">
             <i class="icofont-search-2"></i>
         </button>

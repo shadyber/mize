@@ -232,7 +232,7 @@
                                         </div>
                                         <h6 class="price">$ {{$item->price}}</h6>
                                         <div class="cart-option">
-                                            <button class="lab-btn add-to-cart"><span>Add To Cart</span></button>
+                                            <a href="#" class="lab-btn add-to-cart" itemid="{{$item->id}}" qnt="1"><span>Add To Cart</span></a>
                                         </div>
                                     </div>
                                 </div>

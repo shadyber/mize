@@ -13,9 +13,7 @@
                             <li class="nav-item">
                                 <a class="nav-link"  href="#history" role="tab" aria-controls="history" aria-selected="false">Photo</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#variety" role="tab" aria-controls="variety" aria-selected="false">Color Varity</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="#deals" role="tab" aria-controls="deals" aria-selected="false">More Photo</a>
                             </li>
@@ -151,10 +149,7 @@
 
 
                             </div>
-                            <div class="tab-pane" id="variety" role="tabpanel" aria-labelledby="varity-tab">
 
-
-                            </div>
 
                             <div class="tab-pane" id="deals" role="tabpanel" aria-labelledby="deals-tab">
                              <div class="row">

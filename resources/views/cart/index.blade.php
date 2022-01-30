@@ -1,110 +1,118 @@
 @extends('layouts.app')
-@section('title','My Cart')
+@section('title','Cart')
+@section('sub_title','My Cart')
 @section('content')
-    <div class="wishlist-area shopping_cart shop-list pt-105">
+    <div class="shop-cart padding-tb">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="cart-table table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th scope="col"><span>PRODUCT NAME</span></th>
-                                <th scope="col"><span>UNIT PRICE </span> <span class="d-none">ALL DETAILS</span></th>
-                                <th scope="col"><span>QUANTITY</span></th>
-                                <th scope="col"><span>TOTAL</span></th>
+            <div class="section-wrapper mb-15">
+                <div class="cart-top">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach(\App\Models\Cart::myCart() as $cart)
+                        <tr>
+                            <td class="product-item">
+                                <div class="p-thumb">
+                                    <a href="#"><img src="{{$cart['thumb']}}" alt="{{$cart['name']}}"></a>
+                                </div>
+                                <div class="p-content">
+                                    <a href="/item/{{$cart['slug']}}">{{$cart['name']}}</a>
+                                </div>
+                            </td>
+                            <td>${{$cart['price']}}</td>
+                            <td>
+                                <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
+                                    <div class="dec qtybutton">-</div>
+                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{$cart['quantity']}}">
+                                    <div class="inc qtybutton">+</div>
+                                    <div class="inc qtybutton">+</div></div>
+                            </td>
+                            <td>$ {{$cart['price'] * $cart['quantity']}}</td>
+                            <td>
+                                <a href="#"><img src="/assets/images/del.png" alt="{{$cart['name']}}"></a>
+                            </td>
+                        </tr>
+                        @endforeach
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                          @foreach(\App\Models\Cart::myCart() as $cart)
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <div class="cart-img">
-                                            <img src="{{$cart['thumb']}}" width="75px" height="82px" alt="{{$cart['name']}}">
-                                        </div>
-                                        <div class="product-name mt-auto mb-auto ml-30">
-                                            <h6><a href="/item/{{$cart['slug']}}">{{$cart['name']}}</a></h6>
 
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="product-price ">
-                                        <span>${{$cart['price']}}</span>
-                                        <div class="shopping-cart-mobile-content d-none mt-10">
-                                            <div class="quty">
-                                                <div class="nice-number"><button type="button">-</button>
-                                                    <input class="qty" type="number" value="{{$cart['quantity']}}" data-nice-number-initialized="true" style="width: 2ch;"><button type="button">+</button></div>
-                                            </div>
-                                            <div class="cart-button mt-20">
-                                                <span>${{$cart['price']}}</span>
-                                                <button class="float-right ">X</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="quty">
-                                        <div class="nice-number"><button type="button">-</button>
-                                            <input class="qty" type="number"value="{{$cart['quantity']}}"  data-nice-number-initialized="true" style="width: 2ch;">
-                                            <button type="button">+</button></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="cart-button ">
-                                        <span>${{$cart['price']*$cart['quantity']}}</span>
-                                        <button class="float-right">X</button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                @endforeach
-                                <td colspan="4">
-                                    <div class="table-button">
-                                        <button>CLEAR SHOPPING CART</button>
-                                        <button class="ml-25">UPDATE SHOPPING CART</button>
-                                        <button class="float-right">CONTINUE SHOPPING</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </div>
-        <div class="container pt-50">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="coupon_discount">
-                        <h6>Counpon discount</h6>
-                        <p>Enter your code if you have one. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae</p>
-                        <form action="#" class="coupon-form pt-25">
-                            <input type="text" placeholder="Enter your code here">
-                            <button class="p-btn border-0 ml-20">APPLY COUNPON</button>
+                <div class="cart-bottom">
+                    <div class="cart-checkout-box">
+                        <form action="/" class="coupon" style="display: none;">
+                            <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
+                            <input type="submit" value="Apply Coupon">
                         </form>
+
                     </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="cart-total pt-30 pl-40 pr-30 pb-50 mt-40 mt-md-0">
-                        <h6>Cart Total</h6>
-                        <ul>
-                            <li>Sub Total <span class="float-right">${{\App\Models\Cart::totalCart()}} </span></li>
-                            <li>Grand Total <span class="float-right">${{\App\Models\Cart::totalCart()}}</span></li>
+                    <div class="shiping-box">
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="calculate-shiping w-100">
+                                    <h4>Select Shipping Method</h4>
+                                    <div class="outline-select">
+                                        <select id="shipping_method_option" onchange="selectShipping()">
+                                            @foreach(\App\Models\shippingMethod::all() as $method)
+                                            <option value="{{$method->id}}" title="{{$method->detail}}">{{$method->name}}</option>
+                                            @endforeach
 
-                        </ul>
-                        <p class="pt-15">Checkout with Mutilple Adresses</p>
-                        <form method="get" action="checkout">
+                                        </select>
+                                        <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                                    </div>
 
-                            <button type="submit" class="p-btn border-0 mt-20">PROCEED TO CHECKOUT</button>
-                        </form>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="cart-overview">
+                                    <h4>Cart Totals</h4>
+                                    <ul>
+                                        <li>
+                                            <span class="pull-left">Cart Subtotal</span>
+                                            <p class="pull-right">${{\App\Models\Cart::totalCart()}}</p>
+                                        </li>
+                                        <li>
+                                            <span class="pull-left">Shipping and Handling</span>
+                                            <p class="pull-right">Free Shipping</p>
+                                        </li>
+                                        <li>
+                                            <span class="pull-left">Order Total</span>
+                                            <p class="pull-right">${{\App\Models\Cart::totalCart()}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <form action="/checkout" method="get" class="cart-checkout">
+                                     <input type="hidden" value="1" name="shpping_method_id" id="selected_shipping_method_id">
+                                    <input type="submit" class="btn btn-outline-info btn-lg btn-block" value="Proceed to Checkout">
+                                </form>
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+@endsection
+@section('js')
+    <script type="text/javascript">
+        function selectShipping (e) {
+            var select = document.getElementById('shipping_method_option');
+            var value = select.options[select.selectedIndex].value;
+          //  alert(value); // en
+            var selected_shipping_method_id=document.getElementById('selected_shipping_method_id');
+            selected_shipping_method_id.value=value;
+        }
+    </script>
 @endsection

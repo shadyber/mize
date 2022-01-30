@@ -60,9 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class);
     }
 
-    public function videos()
+
+
+    public function ShippinInfo()
     {
-        return $this->hasMany(Videos::class);
+        return $this->hasMany(ShippingInfo::class);
     }
     public function orders()
     {

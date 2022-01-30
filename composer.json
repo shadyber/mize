@@ -19,6 +19,7 @@
         "fzaninotto/faker": "^1.6",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1"
+
     },
     "require-dev": {
         "facade/ignition": "^2.5",

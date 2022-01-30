@@ -25,7 +25,7 @@
                                                 <div class="product-action-link">
                                                     <a href="{{$item->photo}}" data-rel="lightcase"><i class="icofont-eye"></i></a>
                                                     <a href="#"><i class="icofont-heart-alt"></i></a>
-                                                    <button class="add-to-cart" itemid="{{$item->id}}"><i class="icofont-cart-alt"></i></button>
+                                                    <a href="#" class="add-to-cart" itemid="{{$item->id}}"><i class="icofont-cart-alt"></i></a>
                                                 </div>
                                             </div>
                                             <div class="product-content">
@@ -46,7 +46,7 @@
                                                 <div class="product-action-link">
                                                     <a href="{{$item->photo}}" data-rel="lightcase"><i class="icofont-eye"></i></a>
                                                     <a href="#"><i class="icofont-heart-alt"></i></a>
-                                                    <button class="add-to-cart" itemid="{{$item->id}}"><i class="icofont-cart-alt"></i></button>
+                                                    <a href="#" class="add-to-cart" itemid="{{$item->id}}"><i class="icofont-cart-alt"></i></a>
                                                 </div>
                                             </div>
                                             <div class="product-content">

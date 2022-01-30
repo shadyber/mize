@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ItemPhoto;
 use App\Models\ItemPhotos;
 use Illuminate\Http\Request;
+use Image;
 
 class ItemPhotoController extends Controller
 {

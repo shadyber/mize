@@ -55,7 +55,7 @@
                                             <div class="swiper-slide">
                                                 <div class="shop-item">
                                                     <div class="shop-thumb">
-                                                        <img src="/{{$photo->thumb}}" alt="shop-single">
+                                                        <img src="{{$photo->thumb}}" alt="shop-single">
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                         <div class="discount-code">
 
                                         </div>
-                                        <button type="submit">Add To Cart</button>
+                                        <a class="btn btn-outline-primary cart-button add-to-cart" itemid="{{$item->id}}" qnt="1">Add To Cart</a>
                                     </form>
                                 </div>
                             </div>
@@ -146,22 +146,23 @@
                                             @csrf
                                             <div class="col-md-4 col-12">
                                                 <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->id : 0}}">
-                                                <input type="text" name="name" placeholder="Full Name" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->name : 'login to review'}}">
+                                                <input type="text" name="name" placeholder="Full Name" readonly value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->name : 'login to review'}}">
                                             </div>
                                             <div class="col-md-4 col-12">
-                                                <input type="text" name="email" placeholder="Email Adress" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->email : 'login to review'}}">
+                                                <input type="text" name="email" placeholder="Email Adress" required readonly value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->email : 'login to review'}}">
                                             </div>
                                             <div class="col-md-4 col-12">
                                                 <div class="rating">
                                                     <input type="hidden" name="stars" value="5" id="ratingstar">
                                                     <span class="rating-title">Your Rating : </span>
-                                                    <div class="rating">
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    </div>
+
+                                                    <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                                    <i class="far fa-star"></i>
+                                                                    <i class="far fa-star">
+
+                                                                    </i>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-12">
@@ -171,10 +172,11 @@
                                                 <button class="defult-btn" type="submit">Submit Review</button>
                                             </div>
                                         </form>
-
+@guest
                                         <div class="col-12">
                                             <a href="/login" class="btn btn-outline-danger" type="submit">Login or Register to Review</a>
                                         </div>
+                                        @endguest
 
                                     </div>
                                 </div>

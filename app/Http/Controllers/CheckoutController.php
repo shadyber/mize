@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     //
+
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     public function index(){
         return view('checkout.index');
     }

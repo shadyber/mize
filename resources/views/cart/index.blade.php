@@ -61,7 +61,7 @@
                                     <h4>Select Shipping Method</h4>
                                     <div class="outline-select">
                                         <select id="shipping_method_option" onchange="selectShipping()">
-                                            @foreach(\App\Models\shippingMethod::all() as $method)
+                                            @foreach(\App\Models\ShippingMethod::all() as $method)
                                             <option value="{{$method->id}}" title="{{$method->detail}}">{{$method->name}}</option>
                                             @endforeach
 

@@ -46,13 +46,9 @@ class ShippingInfoController extends Controller
     {
 
 
-
-        $shipingifno=ShippingInfo::where('user_id',Auth::user()->id)->get()->last();
-
-        if($shipingifno==null){
             $shipingifno=new ShippingInfo;
 
-        }
+
 
         $shipingifno->first_name=$request->input('first_name');
         $shipingifno->last_name=$request->input('last_name');

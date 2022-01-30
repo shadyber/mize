@@ -8,18 +8,19 @@
         "php": "^7.3|^8.0",
         "ext-gd": "*",
         "cviebrock/eloquent-sluggable": "^8.0",
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
         "fruitcake/laravel-cors": "^2.0",
+        "fzaninotto/faker": "^1.6",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
+        "laravel/cashier": "^13.8",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "laravelcollective/html": "^6.2",
-        "fzaninotto/faker": "^1.6",
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1"
-
+        "stripe/stripe-php": "^7.112"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

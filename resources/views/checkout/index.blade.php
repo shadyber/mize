@@ -28,7 +28,9 @@
                            <div class="box card pb-50 m-5">
                                <div class="card-header"> Create New Shpping Address</div>
                                <div class="card-body">
-                                   <a href="/home" class="btn btn-lg btn-block btn-outline-info"> <span class="icofont-plus "></a></span>
+                                   <a href="#" class="btn btn-lg btn-block btn-outline-info"  data-toggle="modal" data-target="#exampleModalCenter"> <span class="icofont-plus "></span></a>
+
+
                                </div>
 
                            </div>
@@ -70,13 +72,15 @@
                            <div class="card-header" id="headingOne">
                                <h2 class="mb-0">
                                    <button class="btn btn-outline-info btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                      Card
+                                      Debit / Credit Card
                                    </button>
+
                                </h2>
                            </div>
 
                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                <div class="card-body">
+                                   <p>Powerd by Bank of Abysinya </p>
                                    <form action="/boa" method="post">
                                        @csrf
 
@@ -156,4 +160,6 @@
                 </form>
         </div>
     </div>
+
+    @include('components.fronmodal')
 @endsection

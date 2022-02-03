@@ -195,7 +195,7 @@
                                                     </div>
                                                     <div class="cart-action">
                                                         <a href="/mycart" class="lab-btn"><span>View Cart</span></a>
-                                                        <a href="/checkout?shpping_method_id=1" class="lab-btn"><span>Check Out</span></a>
+                                                        <a href="/checkout?shipping_method_id=1" class="lab-btn"><span>Check Out</span></a>
                                                     </div>
                                                 </div>
 

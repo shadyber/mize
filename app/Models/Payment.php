@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+    protected $fillable=['payment_id','payer_id','payer_email','amount','currency','payment_status','user_id'];
 
 
     public static function paymentsByDate($start , $end){

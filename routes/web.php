@@ -7,6 +7,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShippingInfoController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\StripePaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,3 +93,9 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::get('/about/edit',[AboutController::class,'create']);
     Route::post('/about',[AboutController::class,'store']);
 });
+
+
+
+Route::get('stripe', [StripePaymentController::class, 'stripe']);
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+

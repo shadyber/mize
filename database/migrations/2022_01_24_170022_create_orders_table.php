@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->json('cart');
             $table->bigInteger('shipping_info_id');
-            $table->bigInteger('payment_id');
+            $table->bigInteger('shipping_method_id');
+            $table->bigInteger('payment_id')->nullable();
             $table->string('status')->default('created');
             $table->bigInteger('user_id')->unsigned();
             //FOREIGN KEY CONSTRAINTS

@@ -62,7 +62,7 @@
                                     <div class="outline-select">
                                         <select id="shipping_method_option" onchange="selectShipping()">
                                             @foreach(\App\Models\ShippingMethod::all() as $method)
-                                            <option value="{{$method->id}}" title="{{$method->detail}}">{{$method->name}}</option>
+                                            <option value="{{$method->id}}" title="{{$method->price}}" price="{{$method->price}}">{{$method->name}}</option>
                                             @endforeach
 
                                         </select>
@@ -82,7 +82,8 @@
                                         </li>
                                         <li>
                                             <span class="pull-left">Shipping and Handling</span>
-                                            <p class="pull-right">Free Shipping</p>
+                                            <p class="pull-right" id="input_shipping_method_name">Free Shipping</p>
+                                            <input type="text" name="shipping_method_id" value="1" id="input_shipping_method_id">
                                         </li>
                                         <li>
                                             <span class="pull-left">Order Total</span>
@@ -92,7 +93,9 @@
                                 </div>
 
                                 <form action="/checkout" method="get" class="cart-checkout">
-                                     <input type="hidden" value="1" name="shpping_method_id" id="selected_shipping_method_id">
+                                     <input type="hidden" value="1" name="shipping_method_id" id="selected_shipping_method_id">
+                                     <input type="hidden" value="0" name="shipping_price" id="selected_shipping_price">
+                                     <input type="hidden" value="free" name="shipping_method_name" id="selected_shipping_method_name">
                                     <input type="submit" class="btn btn-outline-info btn-lg btn-block" value="Proceed to Checkout">
                                 </form>
 
@@ -110,9 +113,21 @@
         function selectShipping (e) {
             var select = document.getElementById('shipping_method_option');
             var value = select.options[select.selectedIndex].value;
+            var text = select.options[select.selectedIndex].text;
+            var price = select.options[select.selectedIndex].getAttribute('price');
+
           //  alert(value); // en
+
             var selected_shipping_method_id=document.getElementById('selected_shipping_method_id');
             selected_shipping_method_id.value=value;
+
+            var selected_shipping_price=document.getElementById('selected_shipping_price');
+            selected_shipping_price.value=price;
+
+            var selected_shipping_method_name=document.getElementById('selected_shipping_method_name');
+            selected_shipping_method_name.value=text;
+
+
         }
     </script>
 @endsection

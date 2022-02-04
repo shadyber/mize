@@ -5,8 +5,8 @@
 
     <div class="container">
 
-{{dd($charge)}}
-
+        
+        {{$charge}}
     </div>
 
 

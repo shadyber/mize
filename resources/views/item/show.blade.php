@@ -68,12 +68,13 @@
                                 <div class="post-content">
                                     <h4>{{$item->title}}</h4>
                                     <p class="rating">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        (3 review)
+                                        {{\App\Models\Review::average($item->id)}}
+                                        <i class="far fa-star @if(\App\Models\Review::average($item->id)>=1) text-black @endif"></i>
+                                        <i class="far fa-star  @if(\App\Models\Review::average($item->id)>=2) text-black @endif"></i>
+                                        <i class="far fa-star  @if(\App\Models\Review::average($item->id)>=3) text-black @endif"></i>
+                                        <i class="far fa-star  @if(\App\Models\Review::average($item->id)>=4) text-black @endif"></i>
+                                        <i class="far fa-star @if(\App\Models\Review::average($item->id)>=5) text-black @endif"></i>
+                                        ({{count($item->Reviews)}} review)
                                     </p>
                                     <h4>
                                         $ {{$item->price}}
@@ -121,16 +122,16 @@
                                                     <p>Posted {{$review->created_at->diffForHumans()}}</p>
                                                 </div>
                                                 <div class="rating">
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
+                                                    <i class="far  fa-star @if($review->stars>=1)text-black @endif"></i>
+                                                    <i class="far fa-star @if($review->stars>=2)text-black @endif" ></i>
+                                                    <i class="far fa-star @if($review->stars>=3)text-black @endif"></i>
+                                                    <i class="far fa-star @if($review->stars>=4)text-black @endif"></i>
+                                                    <i class="far fa-star @if($review->stars>=5)text-black @endif"></i>
                                                      {{$review->stars}}
                                                 </div>
                                             </div>
                                             <div class="entry-content">
-                                                <p{{$review->comment}}</p>
+                                                {{$review->comment}}
                                             </div>
                                         </div>
                                     </li>
@@ -147,6 +148,8 @@
                                             <div class="col-md-4 col-12">
                                                 <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->id : 0}}">
                                                 <input type="text" name="name" placeholder="Full Name" readonly value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->name : 'login to review'}}">
+                                                <input type="hidden" name="item_id" value="{{$item->id}}">
+
                                             </div>
                                             <div class="col-md-4 col-12">
                                                 <input type="text" name="email" placeholder="Email Adress" required readonly value="{{\Illuminate\Support\Facades\Auth::user()? \Illuminate\Support\Facades\Auth::user()->email : 'login to review'}}">
@@ -154,13 +157,13 @@
                                             <div class="col-md-4 col-12">
                                                 <div class="rating">
                                                     <input type="hidden" name="stars" value="5" id="ratingstar">
-                                                    <span class="rating-title">Your Rating : </span>
+                                                    <span class="rating-title">Your Rating : (<b id="ratingstarv">0 </b>) </span>
 
-                                                    <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <i class="far fa-star">
+                                                    <i class="far fa-star" onclick="setstar(1)"></i>
+                                                            <i class="far fa-star" onclick="setstar(2)"></i>
+                                                                <i class="far fa-star" onclick="setstar(3)"></i>
+                                                                    <i class="far fa-star" onclick="setstar(4)"></i>
+                                                                    <i class="far fa-star" onclick="setstar(5)">
 
                                                                     </i>
                                                 </div>
@@ -172,9 +175,9 @@
                                                 <button class="defult-btn" type="submit">Submit Review</button>
                                             </div>
                                         </form>
-@guest
+                                        @guest
                                         <div class="col-12">
-                                            <a href="/login" class="btn btn-outline-danger" type="submit">Login or Register to Review</a>
+                                            <a href="/login" class="btn btn-outline-danger btn-lg" type="submit">Login or Register to Review</a>
                                         </div>
                                         @endguest
 
@@ -194,6 +197,13 @@
     <!-- Shop Page Section ending here -->
 @endsection
 @section('js')
-
+    <script>
+var star=0;
+        function setstar(x){
+            star=x;
+            document.getElementById('ratingstar').value=x;
+            document.getElementById('ratingstarv').textContent=x;
+        }
+    </script>
 @endsection
 

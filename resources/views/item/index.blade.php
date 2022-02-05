@@ -33,18 +33,16 @@
                                         <div class="product-content">
                                             <h6><a href="/item/{{$item->slug}}">{{$item->name}}</a></h6>
                                             <div class="rating mb-1">
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
+                                                {!!\App\Models\Review::draw_average_stars($item->id)!!}
+
                                             </div>
                                             <h6>$ {{$item->price}}</h6>
                                         </div>
                                     </div>
                                     <div class="product-list-item">
                                         <div class="product-thumb">
-                                            <img src="{{$item->thumb}}" alt="{{$item->name}}">
+                                            <a href="/item/{{$item->slug}}">
+                                            <img src="{{$item->thumb}}" alt="{{$item->name}}"></a>
                                             <div class="product-action-link">
                                                 <a href="{{$item->photo}}" data-rel="lightcase"><i class="icofont-eye"></i></a>
                                                 <a href="#"><i class="icofont-heart-alt"></i></a>
@@ -52,13 +50,9 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <h6><a href="#">{{$item->name}}</a></h6>
+                                            <h6><a href="/item/{{$item->slug}}">{{$item->name}}</a></h6>
                                             <div class="rating mb-1">
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
-                                                <span><a href="#"><i class="far fa-star"></i></a></span>
+                                                {!!\App\Models\Review::draw_average_stars($item->id)!!}
                                             </div>
                                             <h6>
                                                 ${{$item->price}}

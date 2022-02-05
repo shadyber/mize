@@ -69,7 +69,7 @@
                             <div class="col-12">
                                 <div class="banner-content">
                                     <h1 class="banner-title"><B class="d-lg-block">Fresh Prepared Cultural Spices </B>
-                                        Chickens Specialty Game Meats
+                                        Gifts and
                                         EthiopianAnd More!!! </h1>
                                     <a href="#" class="lab-btn"><span>DISCOVER NOW</span></a>
                                 </div>
@@ -87,7 +87,7 @@
                             <div class="col-12">
                                 <div class="banner-content">
                                     <h1 class="banner-title"><B class="d-lg-block">Fresh Prepared Cultural Spices </B>
-                                        Chickens Specialty Game Meats
+                                        Gifts and More
                                         EthiopianAnd More!!! </h1>
                                     <a href="#" class="lab-btn"><span>DISCOVER NOW</span></a>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="col-12">
                                 <div class="banner-content">
                                     <h1 class="banner-title"><B class="d-lg-block">Fresh Prepared Cultural Spices </B>
-                                        Chickens Specialty Game Meats
+                                        Gifts and
                                         EthiopianAnd More!!! </h1>
                                     <a href="#" class="lab-btn"><span>DISCOVER NOW</span></a>
                                 </div>
@@ -168,8 +168,8 @@
                                     <img src="/assets/images/about/icon/03.png" alt="about Image">
                                 </div>
                                 <div class="ac-content">
-                                    <h6>Daily 100kg+ Meet</h6>
-                                    <p>Continually Aggregate web interfaces</p>
+                                    <h6>Daily 100kg+ Delivery</h6>
+                                    <p>Continually  ...</p>
                                 </div>
                             </div>
                         </div>
@@ -219,16 +219,13 @@
                             <div class="product-item-2">
                                 <div class="product-inner">
                                     <div class="product-thumb">
-                                        <img src="{{$item->thumb}}" alt="{{$item->title}}">
+                                        <a href="/item/{{$item->slug}}"> <img src="{{$item->thumb}}" alt="{{$item->title}}"></a>
                                     </div>
                                     <div class="product-content">
                                         <a href="#"><h6> {{$item->title}}</h6></a>
                                         <div class="rating">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                            {!!\App\Models\Review::draw_average_stars($item->id)!!}
+
                                         </div>
                                         <h6 class="price">$ {{$item->price}}</h6>
                                         <div class="cart-option">

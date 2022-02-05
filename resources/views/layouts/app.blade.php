@@ -71,6 +71,9 @@
         </div>
     </div>
 </section>
+<section>
+    @include('layouts.inc.flash_message')
+</section>
 <!-- Page Header Section Ending Here -->
 @yield('content')
 

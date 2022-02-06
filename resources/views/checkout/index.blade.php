@@ -116,7 +116,7 @@
                            <div class="card-header" id="headingTwo">
                                <h2 class="mb-0">
                                    <button class="btn btn-outline-info btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                     Cash On Delivery
+                                     Cash On Pickup
                                    </button>
                                </h2>
                            </div>
@@ -139,8 +139,48 @@
                                <div class="card-body">
 
 
-                                   <p>Bank Informations</p>
-                                   <p>Other Bank Informations</p>
+                                <h4>Place Your Order to Own The Cart</h4>
+                                   <form action="/bankpayment" method="post">
+                                       @csrf
+                                       <div class="form-group row">
+                                           <label for="name">Full Name</label>
+                                           <input type="text" class="form-control" name="name" required>
+
+                                       </div>
+
+                                       <div class="form-group row">
+                                           <label for="name">Email Address</label>
+                                           <input type="email" class="form-control" name="email" required >
+
+                                       </div>
+
+                                       <div class="form-group row">
+                                           <label for="name">Phone Number</label>
+                                           <input type="tel" class="form-control" name="tel" required >
+
+                                       </div>
+                                    <div class="form-group row">
+                                           <label for="name">Select Bank </label>
+                                           <select class="form-control" name="bank_account_id" required >
+                                               <option value="1">Abysiniya Bank </option>
+                                               <option value="2">Commercial Bank </option>
+                                               <option value="3">Hibret Bank </option>
+                                               <option value="4">Awash Bank </option>
+                                           </select>
+
+                                       </div>
+                                       <input type="hidden" name="shipping_method_id" value="{{app('request')->input('shipping_method_id')}}">
+
+                                       <input type="hidden" name="amount" value="{{\App\Models\Cart::totalCart() + \App\Models\ShippingMethod::find(app('request')->input('shipping_method_id'))->price }}">
+                                       <div class="form-group row">
+
+                                           <button type="submit" class="form-control btn btn-info"  >$USD ({{\App\Models\Cart::totalCart() + \App\Models\ShippingMethod::find(app('request')->input('shipping_method_id'))->price }}) Place Order</button>
+
+                                       </div>
+
+
+                                   </form>
+
 
                                </div>
                            </div>

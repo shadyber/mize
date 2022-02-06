@@ -18,7 +18,8 @@ class CreateShippingMethodsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('detail');
-            $table->double('price');
+
+            $table->float('price', 10, 2);
             $table->string('thumb');
             $table->timestamps();
         });

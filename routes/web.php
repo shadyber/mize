@@ -5,6 +5,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShippingInfoController;
+use App\Http\Controllers\BankStatementController;
+use App\Http\Controllers\BankPaymentController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StripePaymentController;
@@ -92,9 +94,13 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::get('/about/create',[AboutController::class,'create']);
     Route::get('/about/edit',[AboutController::class,'create']);
     Route::post('/about',[AboutController::class,'store']);
+
+    Route::resource('/bankstatement',BankStatementController::class);
 });
 
 
+    Route::resource('/bankpayment',BankPaymentController::class);
+    Route::post('/confirmbankpayment',[BankPaymentController::class,'confirmpayment'])->name('confirmbankpayment');
 
 Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');

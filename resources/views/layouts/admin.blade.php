@@ -45,7 +45,7 @@
             <div class="container-fluid">
 
 
-                @include('components.flash_message')
+                @include('layouts.inc.flash_message')
                 @yield('content')
             </div>
             <!-- /.container-fluid -->

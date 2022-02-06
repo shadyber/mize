@@ -53,6 +53,13 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
+        <a class="nav-link" href="/bankstatement">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Bank Statment</span></a>
+    </li>
+
+  <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
         <a class="nav-link" href="/payments">
             <i class="fas fa-fw fa-cart-arrow-down"></i>
             <span>Payments</span></a>

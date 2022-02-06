@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('photo');
             $table->string('thumb');
             $table->string('color')->nullable();
-            $table->double('price');
+            $table->float('price', 10, 2);
             $table->string('width')->nullable();
             $table->string('height')->nullable();
             $table->string('diameter')->nullable();

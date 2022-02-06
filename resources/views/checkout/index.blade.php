@@ -177,7 +177,7 @@
                                                        @csrf
 
                                                        <input type="hidden" name="shipping_method_id" value="{{app('request')->input('shipping_method_id')}}">
-                                                       <input type="hidden" name="selected_shipping_info_id" value="" id="selected_shipping_info_id">
+                                                       <input type="hidden" name="shipping_info_id" value="" id="selected_shipping_info_id">
 
                                                        <div class='form-row row'>
                                                            <div class='col-xs-12 form-group required'>
@@ -255,7 +255,8 @@
 @section('js')
 
             <script type="text/javascript">
-             function change(v) {
+             function change(v){
+
                  var selected_shpping_info_id=document.getElementById('selected_shipping_info_id');
                  selected_shpping_info_id.value=v;
              }

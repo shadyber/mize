@@ -83,7 +83,7 @@
                                         <li>
                                             <span class="pull-left">Shipping and Handling</span>
                                             <p class="pull-right" id="input_shipping_method_name">Free Shipping</p>
-                                            <input type="text" name="shipping_method_id" value="1" id="input_shipping_method_id">
+                                            <input type="hidden" name="shipping_method_id" value="1" id="input_shipping_method_id">
                                         </li>
                                         <li>
                                             <span class="pull-left">Order Total</span>

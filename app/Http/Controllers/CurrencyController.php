@@ -14,7 +14,9 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        //
+
+     $currencies=Currency::all();
+     return view('admin.currency.index')->with(['currencies'=>$currencies]);
     }
 
     /**
@@ -25,6 +27,8 @@ class CurrencyController extends Controller
     public function create()
     {
         //
+
+        return view('admin.currency.create');
     }
 
     /**
@@ -46,7 +50,7 @@ class CurrencyController extends Controller
      */
     public function show(Currency $currency)
     {
-        //
+        return view('admin.currency.show')->with(['currency'=>$currency]);
     }
 
     /**
@@ -57,7 +61,7 @@ class CurrencyController extends Controller
      */
     public function edit(Currency $currency)
     {
-        //
+        return view('admin.currency.edit')->with(['currency',$currency]);
     }
 
     /**

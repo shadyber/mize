@@ -61,8 +61,15 @@
   <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="/payments">
-            <i class="fas fa-fw fa-cart-arrow-down"></i>
+            <i class="fas fa-fw fa-money-bill-wave"></i>
             <span>Payments</span></a>
+    </li>
+
+  <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="/currency">
+            <i class="fas fa-fw fa-money-bill"></i>
+            <span>Currency</span></a>
     </li>
 
 

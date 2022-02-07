@@ -44,6 +44,11 @@ $bankstatment=BankStatement::where('reference_number', '=', $request->input('ref
 
 $bankPayment=BankPayment::find($request->input('bankPayment_id'));
 
+if(!$bankstatment || !$bankPayment){
+return redirect()->back()->with(['error'=>'Cannot Find Bank Payment Detail in our Side please try again later.']);
+}
+
+
 
 if(($bankPayment->Currency->usd_rate * $bankPayment->amount)!=($bankstatment->Currency->usd_rate * $bankstatment->amount)){
 return redirect()->back()->with(['error','Amount Not Matched']);
@@ -99,7 +104,6 @@ $bankPayment->save();
      */
     public function index()
     {
-        //
     }
 
     /**

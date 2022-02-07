@@ -14,7 +14,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+          $payments=Payment::orderBy('id','desc')->paginate(15);
+          return view('admin.payment.index')->with(['payments'=>$payments]);
+
     }
 
     /**
@@ -44,9 +46,8 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function show(Payment $payment)
-    {
-        //
+    public function show(Payment $payment){
+               return view('admin.payment.show')->with(['payment'=>$payment]); //
     }
 
     /**

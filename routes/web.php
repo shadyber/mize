@@ -8,6 +8,8 @@ use App\Http\Controllers\ShippingInfoController;
 use App\Http\Controllers\BankStatementController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StripePaymentController;
@@ -95,6 +97,8 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::get('/about/create',[AboutController::class,'create']);
     Route::get('/about/edit',[AboutController::class,'create']);
     Route::post('/about',[AboutController::class,'store']);
+    Route::resource('/currency',CurrencyController::class);
+    Route::resource('/payments',PaymentController::class);
 
     Route::resource('/bankstatement',BankStatementController::class);
 });

@@ -17,7 +17,9 @@ class CreateBankStatementsTable extends Migration
             $table->id();
                         $table->string('bank_name');
                         $table->float('amount', 10, 2);
-                        $table->string('currency');
+                         $table->bigInteger('currency_id')->unsigned();
+
+                          $table->foreign('currency_id')->references('id')->on('currencies');
                         $table->date('date');
                         $table->string('reference_number');
                         $table->string('sender_account');

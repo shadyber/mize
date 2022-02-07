@@ -40,8 +40,12 @@
 
 
                 <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name="currency" placeholder="Currency" required>
-                    @error('currency')
+                    <select class="form-control form-control-user" name="currency_id" placeholder="currency Id" required>
+                        @foreach(\App\Models\Currency::all() as $currency)
+                            <option value="{{$currency->id}}"> {{$currency->name}} ({{$currency->slug}})</option>
+                        @endforeach
+                    </select>
+                    @error('currency_id')
                     <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
                     </span>

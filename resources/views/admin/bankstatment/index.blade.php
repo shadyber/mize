@@ -42,7 +42,8 @@
                     {{$banks->reference_number}}
                 </td>
                 <td>
-                    {{$banks->amount}}  {{$banks->currency}}
+                    {{$banks->amount}}  {{$banks->Currency->slug}}
+                    <small>(  $usd {{$banks->amount * $banks->Currency->usd_rate}})</small>
                 </td>
                 <td>
                     {{$banks->date}}

@@ -19,7 +19,9 @@ class CreateBankPaymentsTable extends Migration
             $table->string('tel');
             $table->string('name');
             $table->float('amount', 10, 2);
-            $table->string('currency');
+                        $table->bigInteger('currency_id')->unsigned();
+
+                        $table->foreign('currency_id')->references('id')->on('currencies');
             $table->longText('cart');
             $table->bigInteger('bank_account_id')->unsigned();
             $table->bigInteger('shipping_method_id')->unsigned();

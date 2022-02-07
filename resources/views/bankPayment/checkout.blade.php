@@ -48,7 +48,7 @@
                                 @csrf
                                 <input type="hidden" name="shipping_method_id" value="{{$bankPayment->shipping_method_id}}">
                                 <input type="hidden" name="bankPayment_id" value="{{$bankPayment->id}}">
-                                <input type="hidden" name="shipping_info_id" value="{{ \Illuminate\Support\Facades\Auth::user()->ShippinInfo->last()->id}}" id="selected_shipping_info_id">
+                                <input type="hidden" name="shipping_info_id" value="" id="selected_shipping_info_id">
 
 
                                 <div class="form-group row">
@@ -57,18 +57,38 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="reference_number">Bank Name</label>
+                                    <label for="bank_account_id">Bank Name</label>
                                     <input type="text" class="form-control" name="bank_account_id" value="{{$bankPayment->bank_account_id}}">
+                                    @error('bank_account_id')
+                                    <span class="invalid-feedback" role="alert">
+                                     <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="reference_number">Amount</label>
+                                    <label for="amount">Amount</label>
                                     <input type="text" class="form-control" name="amount">
+                                    @error('amount')
+                                    <span class="invalid-feedback" role="alert">
+                                     <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="reference_number">Currency</label>
-                                    <input type="text" class="form-control" name="currency">
+                                    <label for="currency_id">Currency</label>
+                                    <select class="form-control" name="currency_id">
+                                    @foreach(\App\Models\Currency::all() as $currency)
+
+                                            <option value="{{$currency->id}}">{{$currency->slug}} {{$currency->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('currency_id')
+                                    <span class="invalid-feedback" role="alert">
+                                     <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                                  <div class="form-group row">

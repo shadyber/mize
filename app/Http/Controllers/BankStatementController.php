@@ -51,11 +51,10 @@ class BankStatementController extends Controller
                 $request->validate([
                     'bank_name'=>'required',
                     'amount'=>'required',
-                    'currency'=>'required',
+                    'currency_id'=>'required',
                     'date'=>'required',
                     'reference_number'=>'required',
-                    'sender_account'=>'required',
-                    'merchant_account'=>'required',
+
 
                 ]);
 
@@ -66,7 +65,7 @@ class BankStatementController extends Controller
         $statement= BankStatement::create([
                 'bank_name'=>$request->input('bank_name'),
                 'amount'=>$request->input('amount'),
-                'currency'=>$request->input('currency'),
+                'currency_id'=>$request->input('currency_id'),
                 'date'=>$request->input('date'),
                 'reference_number'=>$request->input('reference_number'),
                 'sender_account'=>$request->input('sender_account'),
@@ -75,7 +74,7 @@ class BankStatementController extends Controller
                 'user_id'=>Auth::user()->id
             ]
         );
-        return redirect()->back()->with('succuss','Statement Submited');
+        return redirect()->back()->with(['success'=>'Statement Submited']);
 
 
     }

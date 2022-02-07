@@ -32,35 +32,31 @@ public function confirmpayment (Request $request){
                     'reference_number'=>'required',
                     'bank_account_id'=>'required',
                     'amount'=>'required',
-                    'currency'=>'required',
+                    'currency_id'=>'required',
                                      ]);
 
 // find if payment is finished on back end.
+
+
 $bankstatment=BankStatement::where('reference_number', '=', $request->input('reference_number'))
                                  ->where('status', '=', 'created')
                                  ->get()->last();
 
+$bankPayment=BankPayment::find($request->input('bankPayment_id'));
 
-if($bankstatment){
 
-$bankPayment_order_amount=BankPayment::find($request->input('bankPayment_id'))->amount;
-
-$bankstatment_amount=$bankstatment->amount;
-if($bankstatment->currency=='etb'){
-$bankstatment_amount=$bankstatment_amount/50;
+if(($bankPayment->Currency->usd_rate * $bankPayment->amount)!=($bankstatment->Currency->usd_rate * $bankstatment->amount)){
+return redirect()->back()->with(['error','Amount Not Matched']);
 }
 
-if($bankPayment_order_amount!=$bankstatment_amount){
-return redirect()->back()->with('error','Amount in our database and your deposit amount is not equal.'.$bankPayment_order_amount.' vs '.$bankstatment_amount);
-}
-//create payment
+
 
 $payment=Payment::create([
 'payment_id'=>'bank_transfer'.BankPayment::find($request->input('bankPayment_id'))->id,
 'payer_id'=>Auth()->user()->id,
 'payer_email'=>Auth()->user()->email,
-'amount'=>$bankPayment_order_amount,
-'currency'=>'usd',
+'amount'=>$bankstatment->amount,
+'currency_id'=>$bankPayment->currency_id,
 'payment_status'=>'created',
 'user_id'=>Auth::user()->id
 ]);
@@ -85,12 +81,6 @@ $bankPayment->status='completed';
 $bankPayment->save();
 
      return view('stripe.success')->with(['success'=>'Payment successful!','charge'=>$payment]);
-
-}
-else{
-return redirect()->back()->with(['warning'=>'Bank Transaction Reference is not recorded in our database please try again.']);
-}
-
 
 
 // convert a currency to usd.request
@@ -146,7 +136,7 @@ return redirect()->back()->with(['warning'=>'Bank Transaction Reference is not r
         $paymentorder= BankPayment::create([
                 'name'=>$request->input('name'),
                 'amount'=>$request->input('amount'),
-                'currency'=>'usd',
+                'currency_id'=>1,
                 'cart'=>json_encode(Cart::myCart()),
                 'email'=>$request->input('email'),
                 'tel'=>$request->input('tel'),

@@ -170,6 +170,8 @@
 
                                        </div>
                                        <input type="hidden" name="shipping_method_id" value="{{app('request')->input('shipping_method_id')}}">
+                                       <input type="hidden" name="shipping_info_id" value=""  required>
+
 
                                        <input type="hidden" name="amount" value="{{\App\Models\Cart::totalCart() + \App\Models\ShippingMethod::find(app('request')->input('shipping_method_id'))->price }}">
                                        <div class="form-group row">

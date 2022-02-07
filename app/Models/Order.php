@@ -12,7 +12,7 @@ class Order extends Model
     protected $fillable = ['cart','shipping_info_id','shipping_method_id','payment_id','status','created','user_id'];
 
     public function address(){
-        return $this->hasOne(ShippingInfo::class,'id');
+        return $this->hasOne(ShippingInfo::class,'id','shipping_info_id');
     }
 
 

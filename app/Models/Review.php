@@ -29,6 +29,10 @@ class Review extends Model
     $total=($review->stars+$total);
     }
 
+
+if($total==0){
+return 0;
+}
     return(round($total/count($item->Reviews)));
     }
 

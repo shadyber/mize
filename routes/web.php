@@ -7,6 +7,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShippingInfoController;
 use App\Http\Controllers\BankStatementController;
 use App\Http\Controllers\BankPaymentController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StripePaymentController;
@@ -86,7 +87,7 @@ Route::get('/contact', function(){
 Route::group(['middleware' => 'role:admin'], function() {
     Route::resource('/items',App\Http\Controllers\AdminItemController::class);
     Route::resource('/order',App\Http\Controllers\OrderController::class);
-    Route::post('/orderstatus',[Controllers\OrderController::class,'updateStatus'])->name('order.status');
+    Route::post('/orderstatus',[OrderController::class,'updateStatus'])->name('order.status');
     Route::post('/photoupdate', [App\Http\Controllers\AdminItemController::class, 'photoupdate'])->name('photoupdate');
     Route::resource('/itemsphoto',App\Http\Controllers\ItemPhotoController::class);
     Route::resource('/verity',App\Http\Controllers\VerityController::class);

@@ -30,6 +30,11 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
+       $request->validate([
+                        'shipping_method_id'=>'required',
+                        'shipping_info_id'=>'required',
+
+                    ]);
 
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -50,7 +55,7 @@ $payment=Payment::create([
 'payment_id'=>$charge->id,
 'payer_id'=>Auth()->user()->id,
 'payer_email'=>Auth()->user()->email,
-'amount'=>$charge->amount,
+'amount'=>$charge->amount/100,
 'currency'=>$charge->currency,
 'payment_status'=>$charge->status,
 'user_id'=>Auth::user()->id

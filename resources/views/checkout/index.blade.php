@@ -216,9 +216,19 @@
                                                        id="payment-form">
                                                        @csrf
 
-                                                       <input type="hidden" name="shipping_method_id" value="{{app('request')->input('shipping_method_id')}}">
-                                                       <input type="hidden" name="shipping_info_id" value="" id="selected_shipping_info_id">
+                                                       <input type="hidden" name="shipping_method_id" value="{{app('request')->input('shipping_method_id')}}" required>
+                                                       @error('shipping_method_id')
+                                                       <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                       </span>
+                                                       @enderror
+                                                       <input type="hidden" name="shipping_info_id" value="" id="selected_shipping_info_id" required>
 
+                                                       @error('shipping_info_id')
+                                                       <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                       </span>
+                                                       @enderror
                                                        <div class='form-row row'>
                                                            <div class='col-xs-12 form-group required'>
                                                                <label class='control-label'>Name on Card</label>

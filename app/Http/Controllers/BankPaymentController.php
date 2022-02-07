@@ -38,10 +38,10 @@ public function confirmpayment (Request $request){
 // find if payment is finished on back end.
 $bankstatment=BankStatement::where('reference_number', '=', $request->input('reference_number'))
                                  ->where('status', '=', 'created')
-                                 ->get();
+                                 ->get()->last();
 
 
-if(!$bankstatment){
+if($bankstatment){
 
 $bankPayment_order_amount=BankPayment::find($request->input('bankPayment_id'))->amount;
 

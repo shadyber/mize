@@ -39,7 +39,23 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name'=>'required',
+            'slug'=>'required',
+            'usd_rate'=>'required|numeric',
+       ]);
+
+
+  $item= Currency::create([
+                'name'=>$request->input('name'),
+                'usd_rate'=>$request->input('usd_rate'),
+                'slug'=>$request->input('slug')
+
+            ]
+        );
+
+return redirect()->back()->with(['success'=>'Currency Add To List']);
     }
 
     /**

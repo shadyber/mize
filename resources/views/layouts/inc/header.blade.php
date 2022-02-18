@@ -29,7 +29,11 @@
                         <a href="/item">Shop</a>
 
                     </li>
-                    <li><a href="/">Contact</a></li>
+                    <li><a href="/contact">Contact</a></li>
+
+                    <li>
+                 <li><a href="/mycart">   <i class="icofont-cart-alt"></i>
+                            <span id="cartCount">{{count(App\Models\Cart::mycart())}}</span>  My Cart</a></li>
 
                     <li>
 
@@ -75,52 +79,14 @@
 
                     </li>
 
-
-                </ul>
-
-                <ul class="lab-ul search-cart">
-                    <li>
-                        <div class="cart-option">
-                            <i class="icofont-cart-alt"></i>
-                            <span id="cartCount">{{count(App\Models\Cart::mycart())}}</span>
-                            <div class="cart-content">
-                                @foreach(\App\Models\Cart::myCart() as $cart)
-                                    <div class="cart-item">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="{{$cart['thumb']}}"
-                                                             alt="cart"></a>
-                                        </div>
-                                        <div class="cart-des">
-                                            <a href="#">{{$cart['name']}}</a>
-                                            <p> {{$cart['quantity']}} X ${{$cart['price']}}</p>
-                                        </div>
-                                        <div class="cart-btn">
-                                            <a href="#"><i class="icofont-close-circled"></i></a>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-
-                                <div class="cart-bottom">
-                                    <div class="cart-subtotal">
-                                        <p>Total: <b class="float-right" id="total">${{\App\Models\Cart::totalCart()}}</b></p>
-                                    </div>
-                                    <div class="cart-action">
-                                        <a href="/mycart" class="lab-btn"><span>View Cart</span></a>
-                                        <a href="/checkout?shipping_method_id=1" class="lab-btn"><span>Check Out</span></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-
                     <li>
                         <div class="search-option">
                             <i class="icofont-search-2"></i>
                         </div>
                     </li>
                 </ul>
+
+
             </div>
         </div>
     </nav>

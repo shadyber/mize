@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Models\StoreOrder;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class StoreOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,6 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $items=Item::all();
-        return $items;
     }
 
     /**
@@ -38,28 +37,40 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+  StoreOrder::create([
+                'email'=>$request->input('email')? $request->input('email') : Auth::user()->email,
+                'tel'=>$request->input('tel'),
+                'cart'=>json_encode(Cart::myCart()),
+                'amount'=>Cart::totalCart(),
+                'user_id'=>Auth::user()->id
+                ]
+                );
+
+        return view('storeorder.locations')->with('message','Order submit succussfully!');
+
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\StoreOrder  $storeOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show(StoreOrder $storeOrder)
     {
         //
-        return $item;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\StoreOrder  $storeOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Item $item)
+    public function edit(StoreOrder $storeOrder)
     {
         //
     }
@@ -68,10 +79,10 @@ class ItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\StoreOrder  $storeOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(Request $request, StoreOrder $storeOrder)
     {
         //
     }
@@ -79,10 +90,10 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\StoreOrder  $storeOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy(StoreOrder $storeOrder)
     {
         //
     }

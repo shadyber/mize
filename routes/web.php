@@ -38,6 +38,8 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controller
 
 Route::resource('/item',App\Http\Controllers\ItemController::class);
 Route::resource('/review',App\Http\Controllers\ReviewController::class);
+Route::resource('/storeorder',App\Http\Controllers\StoreOrderController::class);
+Route::resource('/storelocation',App\Http\Controllers\StoreLocationController::class);
 
 Route::resource('/cat',App\Http\Controllers\ItemCategoryController::class);
 

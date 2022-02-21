@@ -116,13 +116,25 @@
                            <div class="card-header" id="headingTwo">
                                <h2 class="mb-0">
                                    <button class="btn btn-outline-info btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                     Cash On Pickup
+                                   Pay at Store
                                    </button>
                                </h2>
                            </div>
                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                <div class="card-body">
-                                 <p>Customer Address</p>
+                                   <form action="/storeorder" method="post">
+                                       @csrf
+                                       <div class="form-group">
+                                           <input type="email" name="email" class="form-control" placeholder="Email Address to Contact">
+                                       </div>
+                                       <div class="form-group">
+                                           <input type="tel" name="tel"  class="form-control"  placeholder="Phone Number to Contact">
+                                       </div>
+
+                                       <div class="form-group">
+                                           <button type="submit"  class="form-control btn btn-info" > Place Order</button>
+                                       </div>
+                                   </form>
 
                                </div>
                            </div>
@@ -265,10 +277,9 @@
                                                            </div>
                                                        </div>
 
-                                                       <div class='form-row row'>
+                                                       <div class='form-row row hidden'>
                                                            <div class='col-md-12 error form-group hide'>
-                                                               <div class='alert-danger alert'>Please correct the errors and try
-                                                                   again.</div>
+                                                               <div class='alert-danger alert'> </div>
                                                            </div>
                                                        </div>
 

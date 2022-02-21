@@ -34,7 +34,7 @@
                         </div>
                         <div class="text-center">
                             <h3>
-                                {{Auth::user()->name}}<span class="font-weight-light">, 0 <span class="ui-icon-star"></span></span>
+                                {{Auth::user()->name}}<span class="font-weight-light">, 0 <span class="ui-icon-starchec"></span></span>
                             </h3>
                             <div class="h5 font-weight-300">
                                 <i class="ni location_pin mr-2"></i>***{{(Auth::user()->email)}}

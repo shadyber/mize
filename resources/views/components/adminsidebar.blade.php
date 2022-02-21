@@ -7,7 +7,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-shopping-bag   "></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SANDSHOP Admin <sup><i class="fas fa-shopping-bag"></i></sup></div>
+        <div class="sidebar-brand-text mx-3">Mize Admin <sup><i class="fas fa-shopping-bag"></i></sup></div>
     </a>
     <li class="nav-item">
         <a class="nav-link" href="/item" target="_blank">
@@ -30,6 +30,13 @@
         <a class="nav-link" href="/items/create">
             <i class="fas fa-fw fa-shopping-bag"></i>
             <span>Add Items</span></a>
+
+    </li>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="/cat/create">
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Add Item Category</span></a>
 
     </li>
     <!-- Nav Item - Dashboard -->

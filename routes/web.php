@@ -58,6 +58,7 @@ Route::get('/destroyCart',[CartController::class,'destroyCart'])->name('destroyC
 Route::get('/mycart',[CartController::class,'myCart'])->name('mycart');
 
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+Route::post('/checkout',[CheckoutController::class,'store'])->name('checkout');
 Route::resource('/shippingifno',ShippingInfoController::class);
 
 Route::get('/myorder',[App\Http\Controllers\OrderController::class,'myorders'])->name('myorders');

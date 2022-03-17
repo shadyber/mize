@@ -15,4 +15,12 @@ class CheckoutController extends Controller
     public function index(){
         return view('checkout.index');
     }
+
+    public function store(Request $request)
+    {
+
+        // check shipping methods and price first.
+        dd($request->input());
+        // abysiniya bank api goes here.
+    }
 }

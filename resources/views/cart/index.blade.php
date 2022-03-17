@@ -37,7 +37,7 @@
                             </td>
                             <td>$ {{$cart['price'] * $cart['quantity']}}</td>
                             <td>
-                                <a href="#"><img src="/assets/images/del.png" alt="{{$cart['name']}}"></a>
+                                <a href="/removecart/{{$cart['id']}}"><img src="/assets/images/del.png" alt="{{$cart['name']}}"></a>
                             </td>
                         </tr>
                         @endforeach

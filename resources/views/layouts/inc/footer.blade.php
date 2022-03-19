@@ -12,6 +12,14 @@
                             <img src="/assets/images/logo/01.png" alt="footer-logo">
                         </div>
  <p>    {{\App\Models\AboutUs::all()->last()->detail}}</p>
+
+                        <ul class="footer-info">
+                            <li><a class="slider-btn position-relative d-inline-block" href="/about">Terms and Conditions</a></li>
+
+                            <li><a class="slider-btn position-relative d-inline-block" href="/privacy">Privacy policye</a></li>
+                            <li><a class="slider-btn position-relative d-inline-block" href="/waranty">Waranty</a></li>
+                            <li><a class="slider-btn position-relative d-inline-block" href="/delivery">Delivery ansd Shipping</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">

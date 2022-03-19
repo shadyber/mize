@@ -27,13 +27,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-widget mb-30 mb-lg-0">
                         <h4>About Us</h4>
-                        <ul class="footer-info pt-10">
-                            <li><a class="slider-btn position-relative d-inline-block" href="/about">Our Outlets</a></li>
 
-                            <li><a class="slider-btn position-relative d-inline-block" href="/about">Areas we serve</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="/career">Career at mize</a></li>
-                            <li><a class="slider-btn position-relative d-inline-block" href="/contact">Contact Us</a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">

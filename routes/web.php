@@ -78,7 +78,8 @@ Route::get('/privacy', function(){
 });
 Route::get('/delivery', function(){
     return view('delivery');
-});Route::get('/waranty', function(){
+});
+Route::get('/waranty', function(){
     return view('waranty');
 });
 

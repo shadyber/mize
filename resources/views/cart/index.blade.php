@@ -11,7 +11,7 @@
                         <tr>
                             <th>Product</th>
                             <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Quantity </th>
                             <th>Total</th>
                             <th>Edit</th>
                         </tr>
@@ -27,7 +27,10 @@
                                     <a href="/item/{{$cart['slug']}}">{{$cart['name']}}</a>
                                 </div>
                             </td>
-                            <td>${{$cart['price']}}</td>
+                            <td>
+                                $ETB {{$cart['price']}}
+                              <small> {{$cart['weight']}}gram</small>
+                            </td>
                             <td>
                                 <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
                                     <div class="dec qtybutton">-</div>
@@ -59,6 +62,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="calculate-shiping w-100">
                                     <h4>Select Shipping Method</h4>
+                                   <h3> <small>Total Weight : {{$total_weight}} gram</small></h3>
                                     <div class="outline-select">
                                         <select id="shipping_method_option" onchange="selectShipping()">
                                             @foreach(\App\Models\ShippingMethod::all() as $method)

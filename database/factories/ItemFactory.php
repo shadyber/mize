@@ -23,7 +23,7 @@ class ItemFactory extends Factory
             'width'=>$this->faker->numberBetween(1,100),
             'height'=>$this->faker->numberBetween(1,100),
             'diameter'=>$this->faker->numberBetween(1,100),
-            'weight'=>$this->faker->word,
+            'weight'=>$this->faker->numberBetween(10,92322),
             'price'=>180.01,
             'item_category_id'=>$this->faker->numberBetween(1,3),
             'user_id'=>$this->faker->numberBetween(1,2),

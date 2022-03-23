@@ -70,7 +70,7 @@
                         @enderror
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" name="weight" placeholder="Item Weight" required>
+                        <input type="number" step="any" class="form-control form-control-user" name="weight" placeholder="Item Weight in gram" required>
                         @error('weight')
                         <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>

@@ -80,10 +80,10 @@
                                         $ {{$item->price}}
                                     </h4>
                                     <h5>
-                                        Product Description
+                                        {!!  substr($item->name,0,256)!!}
                                     </h5>
                                     <p>
-                                     {{$item->detail}}
+                                        {!!  substr($item->detail,0,300)!!} ...
                                     </p>
                                     <form>
 
@@ -185,8 +185,12 @@
                                 </div>
                             </div>
                             <div class="description">
+                                    <ul>
+                                        <li>Weight:  {{$item->weight}} g</li>
+                                    </ul>
 
-                                {{$item->detail}}
+                                <hr>
+                                {!! $item->detail !!}
                             </div>
                         </div>
                     </div>

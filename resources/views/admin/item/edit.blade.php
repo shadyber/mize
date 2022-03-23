@@ -13,7 +13,7 @@
                             <li class="nav-item">
                                 <a class="nav-link"  href="#history" role="tab" aria-controls="history" aria-selected="false">Photo</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#deals" role="tab" aria-controls="deals" aria-selected="false">More Photo</a>
                             </li>
@@ -68,7 +68,7 @@
                                                 <input type="number" class="form-control form-control" name="price"  value="{{$item->price}}"  placeholder="Item Price" required>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-user" name="weight"  value="{{$item->weight}}"  placeholder="Item Weight" required>
+                                                <input type="number" step="any" class="form-control form-control-user" name="weight"  value="{{$item->weight}}"  placeholder="Item Weight in gram" required>
                                             </div>
                                         </div>
 

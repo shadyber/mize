@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Item;
 
 class CartController extends Controller
@@ -26,6 +27,7 @@ class CartController extends Controller
                     "id" =>$product->id,
                     "slug"=>$product->slug,
                     "name" => $product->name,
+                    "weight" => $product->weight,
                     "quantity" => 1,
 
                     "price" => $product->price,
@@ -56,6 +58,7 @@ class CartController extends Controller
             "name" => $product->name,
             "slug" => $product->slug,
             "id" => $product->id,
+            "weight" => $product->weight,
             "quantity" => 1,
             "price" => $product->price,
             "photo" => $product->photo,
@@ -87,6 +90,7 @@ class CartController extends Controller
                     "id" =>$product->id,
                     "slug"=>$product->slug,
                     "name" => $product->name,
+                    "weight" => $product->weight,
                     "quantity" => $qnt,
                     "price" => $product->price,
                     "photo" => $product->photo,
@@ -116,6 +120,7 @@ class CartController extends Controller
             "name" => $product->name,
             "slug" => $product->slug,
             "id" => $product->id,
+            "weight" => $product->weight,
             "quantity" => $qnt,
             "price" => $product->price,
             "photo" => $product->photo,
@@ -146,7 +151,11 @@ class CartController extends Controller
         return redirect()->back();
     }
     public  function  myCart(){
-        return view('cart.index');
+        $totlweight=0;
+        foreach(Cart::myCart() as $car){
+            $totlweight+=($car['weight'] * $car['quantity']);
+        }
+        return view('cart.index')->with(['total_weight'=>$totlweight]);
     }
 
 }

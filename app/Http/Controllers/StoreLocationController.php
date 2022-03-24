@@ -12,6 +12,12 @@ class StoreLocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+
     public function index()
     {
     $storelocations=StoreLocation::all();
@@ -91,6 +97,9 @@ class StoreLocationController extends Controller
      */
     public function destroy(StoreLocation $storeLocation)
     {
-        //
+
+
+        $storeLocation->delete();
+        return redirect()->back()->with(['sucuss'=>'Location Deleted Sucussful']);
     }
 }
